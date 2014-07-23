@@ -10,11 +10,11 @@
 
 @implementation AL2RelativeLayoutView
 
-- (void)layoutSubviews
+- (void)positionSubviews
 {
-    [super layoutSubviews];
+    [super positionSubviews];
     
-    [self measure:self.superview.frame];
+    
 }
 
 @end

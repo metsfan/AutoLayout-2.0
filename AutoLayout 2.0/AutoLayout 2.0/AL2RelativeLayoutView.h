@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AL2LayoutView.h"
 
-@interface AL2RelativeLayoutView : UIView
+@interface AL2RelativeLayoutView : AL2LayoutView
 
 @end

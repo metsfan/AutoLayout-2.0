@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-static const int MATCH_PARENT = -1;
-static const int WRAP_CONTENT = -2;
+static const int MATCH_PARENT = 0xFF00;
+static const int WRAP_CONTENT = 0xFF01;
 
 @interface UIView (AL2)
 
 - (instancetype)initWithSize:(CGSize)size;
 
-- (void)measure:(CGRect)parentFrame;
+- (void)measure:(CGSize)parentSize;
+- (void)wrapToSubviews;
 
 - (void)setLeftMargin:(int)margin;
 - (void)setRightMargin:(int)margin;

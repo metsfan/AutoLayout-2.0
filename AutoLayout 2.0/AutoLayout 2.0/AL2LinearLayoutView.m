@@ -10,11 +10,9 @@
 
 @implementation AL2LinearLayoutView
 
-- (void)layoutSubviews
+- (void)positionSubviews
 {
-    [super layoutSubviews];
-    
-    [self measure:self.superview.frame];
+    [super positionSubviews];
 }
 
 @end

@@ -10,9 +10,19 @@
 
 @implementation UIImageView (AL2)
 
-- (void)measure:(CGRect)parentFrame
+- (void)measure:(CGSize)parentSize
 {
+    [super measure:parentSize];
     
+    CGSize size = self.size;
+    
+    if (size.width == WRAP_CONTENT) {
+        size.width = self.image.size.width;
+    }
+    
+    if (size.height == WRAP_CONTENT) {
+        size.height = self.image.size.height;
+    }
 }
 
 @end

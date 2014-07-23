@@ -1,5 +1,5 @@
 //
-//  AL2LinearLayoutView.h
+//  AL2Layout.h
 //  AutoLayout 2.0
 //
 //  Created by Adam Eskreis on 7/23/14.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AL2LayoutView.h"
 
-@interface AL2LinearLayoutView : AL2LayoutView
+@interface AL2LayoutView : UIView
+
+- (void)positionSubviews;
 
 @end

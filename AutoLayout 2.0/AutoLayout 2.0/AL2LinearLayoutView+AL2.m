@@ -10,7 +10,7 @@
 
 @implementation AL2LinearLayoutView (AL2)
 
-- (void)measure:(CGRect)parentFrame
+- (void)measure:(CGSize)parentSize
 {
     
 }

@@ -25,11 +25,10 @@
 		66FD68E719801B30009A3AF9 /* AL2LinearLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68E619801B30009A3AF9 /* AL2LinearLayoutView.m */; };
 		66FD68EA19801B45009A3AF9 /* AL2RelativeLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68E919801B45009A3AF9 /* AL2RelativeLayoutView.m */; };
 		66FD68ED19801B6D009A3AF9 /* UIView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68EC19801B6D009A3AF9 /* UIView+AL2.m */; };
-		66FD68F019802880009A3AF9 /* AL2LinearLayoutView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68EF19802880009A3AF9 /* AL2LinearLayoutView+AL2.m */; };
-		66FD68F31980290F009A3AF9 /* AL2RelativeLayoutView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68F21980290F009A3AF9 /* AL2RelativeLayoutView+AL2.m */; };
 		66FD68F61980291E009A3AF9 /* UIButton+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68F51980291E009A3AF9 /* UIButton+AL2.m */; };
 		66FD68F919802929009A3AF9 /* UILabel+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68F819802929009A3AF9 /* UILabel+AL2.m */; };
 		66FD68FC19802937009A3AF9 /* UIImageView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68FB19802937009A3AF9 /* UIImageView+AL2.m */; };
+		66FD6900198032F1009A3AF9 /* AL2LayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68FF198032F1009A3AF9 /* AL2LayoutView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,10 +68,6 @@
 		66FD68E919801B45009A3AF9 /* AL2RelativeLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2RelativeLayoutView.m; sourceTree = "<group>"; };
 		66FD68EB19801B6D009A3AF9 /* UIView+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AL2.h"; sourceTree = "<group>"; };
 		66FD68EC19801B6D009A3AF9 /* UIView+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AL2.m"; sourceTree = "<group>"; };
-		66FD68EE19802880009A3AF9 /* AL2LinearLayoutView+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AL2LinearLayoutView+AL2.h"; sourceTree = "<group>"; };
-		66FD68EF19802880009A3AF9 /* AL2LinearLayoutView+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AL2LinearLayoutView+AL2.m"; sourceTree = "<group>"; };
-		66FD68F11980290F009A3AF9 /* AL2RelativeLayoutView+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AL2RelativeLayoutView+AL2.h"; sourceTree = "<group>"; };
-		66FD68F21980290F009A3AF9 /* AL2RelativeLayoutView+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AL2RelativeLayoutView+AL2.m"; sourceTree = "<group>"; };
 		66FD68F41980291E009A3AF9 /* UIButton+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AL2.h"; sourceTree = "<group>"; };
 		66FD68F51980291E009A3AF9 /* UIButton+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AL2.m"; sourceTree = "<group>"; };
 		66FD68F719802929009A3AF9 /* UILabel+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AL2.h"; sourceTree = "<group>"; };
@@ -80,6 +75,8 @@
 		66FD68FA19802937009A3AF9 /* UIImageView+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AL2.h"; sourceTree = "<group>"; };
 		66FD68FB19802937009A3AF9 /* UIImageView+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AL2.m"; sourceTree = "<group>"; };
 		66FD68FD1980294F009A3AF9 /* AutoLayout2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayout2.h; sourceTree = "<group>"; };
+		66FD68FE198032F1009A3AF9 /* AL2LayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LayoutView.h; sourceTree = "<group>"; };
+		66FD68FF198032F1009A3AF9 /* AL2LayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LayoutView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,16 +144,14 @@
 				66FD68C619801AD5009A3AF9 /* AL2ViewController.m */,
 				66FD68C819801AD5009A3AF9 /* Images.xcassets */,
 				66FD68B419801AD5009A3AF9 /* Supporting Files */,
+				66FD68FE198032F1009A3AF9 /* AL2LayoutView.h */,
+				66FD68FF198032F1009A3AF9 /* AL2LayoutView.m */,
 				66FD68E519801B30009A3AF9 /* AL2LinearLayoutView.h */,
 				66FD68E619801B30009A3AF9 /* AL2LinearLayoutView.m */,
 				66FD68E819801B45009A3AF9 /* AL2RelativeLayoutView.h */,
 				66FD68E919801B45009A3AF9 /* AL2RelativeLayoutView.m */,
 				66FD68EB19801B6D009A3AF9 /* UIView+AL2.h */,
 				66FD68EC19801B6D009A3AF9 /* UIView+AL2.m */,
-				66FD68EE19802880009A3AF9 /* AL2LinearLayoutView+AL2.h */,
-				66FD68EF19802880009A3AF9 /* AL2LinearLayoutView+AL2.m */,
-				66FD68F11980290F009A3AF9 /* AL2RelativeLayoutView+AL2.h */,
-				66FD68F21980290F009A3AF9 /* AL2RelativeLayoutView+AL2.m */,
 				66FD68F41980291E009A3AF9 /* UIButton+AL2.h */,
 				66FD68F51980291E009A3AF9 /* UIButton+AL2.m */,
 				66FD68F719802929009A3AF9 /* UILabel+AL2.h */,
@@ -301,12 +296,11 @@
 				66FD68C719801AD5009A3AF9 /* AL2ViewController.m in Sources */,
 				66FD68BE19801AD5009A3AF9 /* AL2AppDelegate.m in Sources */,
 				66FD68BA19801AD5009A3AF9 /* main.m in Sources */,
-				66FD68F31980290F009A3AF9 /* AL2RelativeLayoutView+AL2.m in Sources */,
 				66FD68F919802929009A3AF9 /* UILabel+AL2.m in Sources */,
 				66FD68EA19801B45009A3AF9 /* AL2RelativeLayoutView.m in Sources */,
 				66FD68FC19802937009A3AF9 /* UIImageView+AL2.m in Sources */,
 				66FD68E719801B30009A3AF9 /* AL2LinearLayoutView.m in Sources */,
-				66FD68F019802880009A3AF9 /* AL2LinearLayoutView+AL2.m in Sources */,
+				66FD6900198032F1009A3AF9 /* AL2LayoutView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

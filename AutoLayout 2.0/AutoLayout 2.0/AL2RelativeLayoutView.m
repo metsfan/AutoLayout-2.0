@@ -37,7 +37,7 @@
         frame.size.width += viewPadding.left + viewPadding.right;
         frame.size.height += viewPadding.top + viewPadding.bottom;
         
-        if (layoutParams.alignParentRight && self.size.width != WRAP_CONTENT) {
+        if (layoutParams.alignParentRight && self.sizeSpec.width != WRAP_CONTENT) {
             frame.origin.x = self.size.width - self.padding.right - frame.size.width;
         } else if (layoutParams.leftOfView) {
             CGRect leftOfFrame = layoutParams.leftOfView.frame;
@@ -49,7 +49,7 @@
             frame.origin.x = padding.left;
         }
     
-        if (layoutParams.alignParentBottom && self.size.height != WRAP_CONTENT) {
+        if (layoutParams.alignParentBottom && self.sizeSpec.height != WRAP_CONTENT) {
             frame.origin.y = self.size.height - self.padding.bottom - frame.size.height;
         } else if (layoutParams.aboveView) {
             CGRect aboveFrame = layoutParams.aboveView.frame;
@@ -63,8 +63,8 @@
         
         frame.origin.x += viewMargin.left;
         frame.origin.y += viewMargin.top;
-        
-        int overflow = (frame.origin.x + frame.size.width) - self.size.width;
+
+	/*int overflow = (frame.origin.x + frame.size.width) - self.size.width;
         if (self.size.width != WRAP_CONTENT && overflow > 0) {
             CGSize newSize = CGSizeMake(frame.size.width - overflow - padding.right, frame.size.height);
             subview.size = CGSizeMake(MATCH_PARENT, frame.size.height);
@@ -74,7 +74,13 @@
             frame = subview.frame;
             frame.origin = oldFrame.origin;
             frame.size.height = oldFrame.size.height;
-        }
+        }*/
+
+	if (subview.sizeSpec.width == MATCH_PARENT)
+            frame.size.width = self.frame.size.width - padding.right - frame.origin.x - viewMargin.right;
+        if (subview.sizeSpec.height == MATCH_PARENT)
+            frame.size.height = self.frame.size.height - padding.top - frame.origin.y - viewMargin.bottom;
+
         
         subview.frame = frame;
     }

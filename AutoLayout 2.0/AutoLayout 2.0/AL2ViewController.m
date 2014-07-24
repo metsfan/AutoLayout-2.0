@@ -25,6 +25,7 @@
 
 - (void)testLinearLayout
 {
+    
     AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
     linearLayout.backgroundColor = [UIColor greenColor];
     linearLayout.orientation = kAL2LinearLayoutVertical;
@@ -41,7 +42,7 @@
     [linearLayout addSubview:image];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.size = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
+    button.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
     [button setTitle:@"Press me" forState:UIControlStateNormal];
     button.margin = UIEdgeInsetsMake(10, 0, 10, 0);
     button.padding = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -64,30 +65,76 @@
     [self.view addSubview:relativeLayout];
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin_no_logo"]];
+    image.sizeSpec = CGSizeMake(10, 10);
     [relativeLayout addSubview:image];
     
+    image.userInteractionEnabled = YES;
+    UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTap:)];
+    [image addGestureRecognizer:imageTap];
+    
     UILabel *label = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
-    label.text = @"Hello this is a great label with more text than we need";
+    label.text = @"Hello this is a great label";
     label.backgroundColor = [UIColor redColor];
     label.padding = UIEdgeInsetsMake(10, 10, 10, 10);
-    //[label alignParentRight:YES];
+    [label alignParentRight:YES];
     [relativeLayout addSubview:label];
     
+    label.userInteractionEnabled = YES;
+    UITapGestureRecognizer *labelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+    [label addGestureRecognizer:labelTap];
+    
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.size = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
+    button.sizeSpec = CGSizeMake(WRAP_CONTENT, MATCH_PARENT);
     [button setTitle:@"Press me" forState:UIControlStateNormal];
     button.margin = UIEdgeInsetsMake(10, 0, 10, 0);
     button.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     button.backgroundColor = [UIColor grayColor];
     [relativeLayout addSubview:button];
     
-    [image layoutLeftOf:button];
-    //[button layoutRightOf:image];
-    [button alignParentRight:YES];
+    button.userInteractionEnabled = YES;
+    UITapGestureRecognizer *buttonTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonTap:)];
+    [button addGestureRecognizer:buttonTap];
+    
+    
+    [button layoutRightOf:image];
+    [button layoutBelow:image];
     
     [label layoutRightOf:image];
-    //[label alignParentLeft:YES];
     [label alignParentBottom:YES];
+}
+
+- (void)imageTap:(UIGestureRecognizer *)sender
+{
+    CGSize spec = sender.view.sizeSpec;
+    spec.width += 10;
+    spec.height = spec.width;
+    if (spec.width > 100 || spec.height > 100)
+    {
+        spec.width = spec.height = 10;
+    }
+    
+    sender.view.sizeSpec = spec;
+}
+
+- (void)buttonTap:(UIGestureRecognizer *)sender
+{
+    UIEdgeInsets margin = sender.view.margin;
+    margin.bottom = rand() % 10;
+    margin.left =  rand() % 10;
+    margin.right = rand() % 10;
+    margin.top = rand() % 10;
+    sender.view.margin = margin;
+}
+
+- (void)labelTap:(UIGestureRecognizer *)sender
+{
+    UIEdgeInsets padding = sender.view.padding;
+    padding.bottom = rand() % 10;
+    padding.left =  rand() % 10;
+    padding.right = rand() % 10;
+    padding.top = rand() % 10;
+    sender.view.padding = padding;
 }
 
 - (void)didReceiveMemoryWarning

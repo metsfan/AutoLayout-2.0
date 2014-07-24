@@ -14,13 +14,14 @@
 {
     [super measure:parentSize];
     
+    CGSize spec = self.sizeSpec;
     CGSize size = self.size;
     
-    if (size.width == WRAP_CONTENT) {
+    if (spec.width == WRAP_CONTENT) {
         size.width = self.image.size.width;
     }
     
-    if (size.height == WRAP_CONTENT) {
+    if (spec.height == WRAP_CONTENT) {
         size.height = self.image.size.height;
     }
 }

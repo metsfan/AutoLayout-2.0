@@ -7,6 +7,7 @@
 //
 
 #import "AL2Utils.h"
+#import "AL2LayoutParams.h"
 #import "UIView+AL2.h"
 #import "UILabel+AL2.h"
 #import "UIButton+AL2.h"

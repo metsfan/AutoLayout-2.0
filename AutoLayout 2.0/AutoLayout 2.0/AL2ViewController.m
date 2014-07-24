@@ -19,6 +19,12 @@
     [super viewDidLoad];
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    //[self testLinearLayout];
+    [self testRelativeLayout];
+}
+
+- (void)testLinearLayout
+{
     AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
     linearLayout.backgroundColor = [UIColor greenColor];
     linearLayout.orientation = kAL2LinearLayoutVertical;
@@ -48,7 +54,21 @@
     label2.margin = UIEdgeInsetsMake(15, 15, 15, 15);
     label2.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     [linearLayout addSubview:label2];
+}
+
+- (void)testRelativeLayout
+{
+    AL2RelativeLayoutView *relativeLayout = [[AL2RelativeLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, MATCH_PARENT)];
+    relativeLayout.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:relativeLayout];
     
+    UILabel *label = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    label.text = @"Hello this is a great label";
+    label.backgroundColor = [UIColor redColor];
+    label.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    [label alignParentBottom:YES];
+    //[label alignParentRight:YES];
+    [relativeLayout addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning

@@ -28,8 +28,19 @@ static const int WRAP_CONTENT = 0xFF01;
 - (void)setTopPadding:(int)padding;
 - (void)setBottomPadding:(int)padding;
 
+/* Relative Layout method */
+- (void)layoutLeftOf:(UIView *)other;
+- (void)layoutRightOf:(UIView *)other;
+- (void)layoutAbove:(UIView *)other;
+- (void)layoutBelow:(UIView *)other;
+- (void)alignParentTop:(BOOL)align;
+- (void)alignParentBottom:(BOOL)align;
+- (void)alignParentRight:(BOOL)align;
+- (void)alignParentLeft:(BOOL)align;
+
 @property (assign, nonatomic) CGSize size;
 @property (assign, nonatomic) UIEdgeInsets margin;
 @property (assign, nonatomic) UIEdgeInsets padding;
+@property (strong, nonatomic) AL2LayoutParams *layoutParams;
 
 @end

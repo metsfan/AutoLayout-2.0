@@ -9,14 +9,22 @@
 #import "UIView+AL2.h"
 #import <objc/runtime.h>
 
+
+
 @implementation UIView (AL2)
 
 static const char *marginKey = "autolayout2.key.margin";
 static const char *paddingKey = "autolayout2.key.padding";
+static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 
 - (instancetype)initWithSize:(CGSize)size
 {
-    return [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    self = [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    if (self) {
+        AL2LayoutParams *layoutParams = [AL2LayoutParams new];
+        objc_setAssociatedObject(self, layoutParamsKey, layoutParams, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return self;
 }
 
 - (void)measure:(CGSize)parentSize
@@ -182,6 +190,64 @@ static const char *paddingKey = "autolayout2.key.padding";
 - (CGSize)size
 {
     return self.frame.size;
+}
+
+- (void)layoutLeftOf:(UIView *)other
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.leftOfView = other;
+}
+
+- (void)layoutRightOf:(UIView *)other
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.rightOfView = other;
+}
+
+- (void)layoutAbove:(UIView *)other
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.aboveView = other;
+}
+
+- (void)layoutBelow:(UIView *)other
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.belowView = other;
+}
+
+- (void)alignParentTop:(BOOL)align
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.alignParentTop = align;
+}
+
+- (void)alignParentBottom:(BOOL)align
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.alignParentBottom = align;
+}
+
+- (void)alignParentRight:(BOOL)align
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.alignParentRight = align;
+}
+
+- (void)alignParentLeft:(BOOL)align
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.alignParentLeft = align;
+}
+
+- (void)setLayoutParams:(AL2LayoutParams *)layoutParams
+{
+    objc_setAssociatedObject(self, layoutParamsKey, layoutParams, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (AL2LayoutParams *)layoutParams
+{
+    return objc_getAssociatedObject(self, layoutParamsKey);
 }
 
 @end

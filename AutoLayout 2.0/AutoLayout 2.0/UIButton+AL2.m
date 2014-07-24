@@ -12,7 +12,23 @@
 
 - (void)measure:(CGSize)parentSize
 {
+    [super measure:parentSize];
     
+    [self.titleLabel measure:self.size];
+    
+    CGSize size = self.size;
+    if (size.width == WRAP_CONTENT) {
+        size.width = self.titleLabel.size.width;
+    }
+    
+    if (size.height == WRAP_CONTENT) {
+        size.height = self.titleLabel.size.height;
+    }
+    
+    UIEdgeInsets padding = self.padding;
+    self.titleEdgeInsets = padding;
+    
+    self.size = size;
 }
 
 @end

@@ -29,6 +29,7 @@
 		66FD68F919802929009A3AF9 /* UILabel+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68F819802929009A3AF9 /* UILabel+AL2.m */; };
 		66FD68FC19802937009A3AF9 /* UIImageView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68FB19802937009A3AF9 /* UIImageView+AL2.m */; };
 		66FD6900198032F1009A3AF9 /* AL2LayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68FF198032F1009A3AF9 /* AL2LayoutView.m */; };
+		66FD6903198088F3009A3AF9 /* AL2Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD6902198088F3009A3AF9 /* AL2Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		66FD68FD1980294F009A3AF9 /* AutoLayout2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayout2.h; sourceTree = "<group>"; };
 		66FD68FE198032F1009A3AF9 /* AL2LayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LayoutView.h; sourceTree = "<group>"; };
 		66FD68FF198032F1009A3AF9 /* AL2LayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LayoutView.m; sourceTree = "<group>"; };
+		66FD6901198088F3009A3AF9 /* AL2Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2Utils.h; sourceTree = "<group>"; };
+		66FD6902198088F3009A3AF9 /* AL2Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2Utils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				66FD68FA19802937009A3AF9 /* UIImageView+AL2.h */,
 				66FD68FB19802937009A3AF9 /* UIImageView+AL2.m */,
 				66FD68FD1980294F009A3AF9 /* AutoLayout2.h */,
+				66FD6901198088F3009A3AF9 /* AL2Utils.h */,
+				66FD6902198088F3009A3AF9 /* AL2Utils.m */,
 			);
 			path = "AutoLayout 2.0";
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				66FD68ED19801B6D009A3AF9 /* UIView+AL2.m in Sources */,
 				66FD68C719801AD5009A3AF9 /* AL2ViewController.m in Sources */,
 				66FD68BE19801AD5009A3AF9 /* AL2AppDelegate.m in Sources */,
+				66FD6903198088F3009A3AF9 /* AL2Utils.m in Sources */,
 				66FD68BA19801AD5009A3AF9 /* main.m in Sources */,
 				66FD68F919802929009A3AF9 /* UILabel+AL2.m in Sources */,
 				66FD68EA19801B45009A3AF9 /* AL2RelativeLayoutView.m in Sources */,

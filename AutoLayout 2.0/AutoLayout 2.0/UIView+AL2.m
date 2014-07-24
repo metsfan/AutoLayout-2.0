@@ -21,6 +21,9 @@ static const char *paddingKey = "autolayout2.key.padding";
 
 - (void)measure:(CGSize)parentSize
 {
+    UIEdgeInsets margin = self.margin;
+    UIEdgeInsets padding = self.padding;
+    
     CGSize size = self.size;
     
     // If the size is set to a defined value, set it up here
@@ -32,11 +35,25 @@ static const char *paddingKey = "autolayout2.key.padding";
         size.height = parentSize.height;
     }
     
+    CGSize measureSize = size;
+    if (size.width == WRAP_CONTENT) {
+        measureSize.width = parentSize.width;
+    }
+    
+    if (size.height == WRAP_CONTENT) {
+        measureSize.height = parentSize.height;
+    }
+    
     // Measure subviews
     
     NSArray *subviews = self.subviews;
     for (UIView *view in subviews) {
-        [view measure:size];
+        CGSize viewMeasureSize = measureSize;
+        UIEdgeInsets viewMargin = view.margin;
+        UIEdgeInsets viewPadding = view.padding;
+        viewMeasureSize.width = viewMeasureSize.width - viewMargin.right - viewMargin.left - padding.left - padding.right - margin.right - viewPadding.right - viewPadding.left;
+        viewMeasureSize.height = viewMeasureSize.height - viewMargin.bottom - viewMargin.top - padding.top - padding.bottom - margin.bottom - viewPadding.bottom - viewPadding.top;
+        [view measure:viewMeasureSize];
     }
     
     self.size = size;
@@ -47,6 +64,8 @@ static const char *paddingKey = "autolayout2.key.padding";
     CGSize size = self.size;
     NSArray *subviews = self.subviews;
     
+    UIEdgeInsets padding = self.padding;
+    
     // If the size is wrap content, we can now set the size with our subviews measured
     if (size.width == WRAP_CONTENT) {
         int left = INFINITY, right = -INFINITY;
@@ -56,18 +75,20 @@ static const char *paddingKey = "autolayout2.key.padding";
             right = MAX(right, view.frame.origin.x + view.frame.size.width);
         }
         
-        size.width = right - left;
+        size.width = (right - left) + padding.right + padding.left;
     }
     
     if (size.height == WRAP_CONTENT) {
         int top = INFINITY, bottom = -INFINITY;
         
         for (UIView *view in subviews) {
+            UIEdgeInsets margin = view.margin;
+            
             top = MIN(top, view.frame.origin.y);
-            bottom = MAX(bottom, view.frame.origin.y + view.frame.size.height);
+            bottom = MAX(bottom, view.frame.origin.y + view.frame.size.height + margin.bottom);
         }
         
-        size.height = bottom - top;
+        size.height = (bottom - top) + padding.bottom + padding.top;
     }
     
     self.size = size;

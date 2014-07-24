@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AL2LayoutView.h"
 
+typedef enum {
+    kAL2LinearLayoutVertical,
+    kAL2LinearLayoutHorizontal
+} AL2LinearLayoutOrientation;
+
 @interface AL2LinearLayoutView : AL2LayoutView
+
+@property (assign, nonatomic) AL2LinearLayoutOrientation orientation;
 
 @end

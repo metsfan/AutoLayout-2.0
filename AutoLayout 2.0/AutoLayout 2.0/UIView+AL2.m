@@ -138,7 +138,7 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 {
     NSValue *value = [NSValue valueWithUIEdgeInsets:margin];
     objc_setAssociatedObject(self, marginKey, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self parentNeedsLayout];
 }
 
 - (UIEdgeInsets)margin
@@ -179,7 +179,7 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 {
     NSValue *value = [NSValue valueWithUIEdgeInsets:padding];
     objc_setAssociatedObject(self, paddingKey, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self parentNeedsLayout];
 }
 
 - (UIEdgeInsets)padding
@@ -194,7 +194,7 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
     params.spec = spec;
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, spec.width, spec.height);
     
-    [self setNeedsLayout];
+    [self parentNeedsLayout];
 }
 
 - (void)setSize:(CGSize)size
@@ -217,53 +217,62 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 {
     AL2LayoutParams *params = self.layoutParams;
     params.leftOfView = other;
+    [self parentNeedsLayout];
 }
 
 - (void)layoutRightOf:(UIView *)other
 {
     AL2LayoutParams *params = self.layoutParams;
     params.rightOfView = other;
+    [self parentNeedsLayout];
 }
 
 - (void)layoutAbove:(UIView *)other
 {
     AL2LayoutParams *params = self.layoutParams;
     params.aboveView = other;
+    [self parentNeedsLayout];
 }
 
 - (void)layoutBelow:(UIView *)other
 {
     AL2LayoutParams *params = self.layoutParams;
     params.belowView = other;
+    [self parentNeedsLayout];
 }
 
 - (void)alignParentTop:(BOOL)align
 {
     AL2LayoutParams *params = self.layoutParams;
     params.alignParentTop = align;
+    [self parentNeedsLayout];
 }
 
 - (void)alignParentBottom:(BOOL)align
 {
     AL2LayoutParams *params = self.layoutParams;
     params.alignParentBottom = align;
+    [self parentNeedsLayout];
 }
 
 - (void)alignParentRight:(BOOL)align
 {
     AL2LayoutParams *params = self.layoutParams;
     params.alignParentRight = align;
+    [self parentNeedsLayout];
 }
 
 - (void)alignParentLeft:(BOOL)align
 {
     AL2LayoutParams *params = self.layoutParams;
     params.alignParentLeft = align;
+    [self parentNeedsLayout];
 }
 
 - (void)setLayoutParams:(AL2LayoutParams *)layoutParams
 {
     objc_setAssociatedObject(self, layoutParamsKey, layoutParams, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self parentNeedsLayout];
 }
 
 - (AL2LayoutParams *)layoutParams
@@ -275,6 +284,14 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
     }
     
     return layoutParams;
+}
+
+- (void)parentNeedsLayout
+{
+    if (self.superview)
+    {
+        [self.superview setNeedsLayout];
+    }
 }
 
 @end

@@ -65,9 +65,9 @@
         frame.origin.y += viewMargin.top;
         
         if (subview.sizeSpec.width == MATCH_PARENT)
-            frame.size.width = self.frame.size.width - padding.right - frame.origin.x - viewPadding.right;
+            frame.size.width = self.frame.size.width - padding.right - frame.origin.x - viewMargin.right;
         if (subview.sizeSpec.height == MATCH_PARENT)
-            frame.size.height = self.frame.size.height - padding.top - frame.origin.y - viewPadding.bottom;
+            frame.size.height = self.frame.size.height - padding.top - frame.origin.y - viewMargin.bottom;
         
         subview.frame = frame;
     }

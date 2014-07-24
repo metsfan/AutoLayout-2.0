@@ -69,8 +69,8 @@
     [relativeLayout addSubview:image];
     
     image.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    [image addGestureRecognizer:tap];
+    UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTap:)];
+    [image addGestureRecognizer:imageTap];
     
     UILabel *label = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
     label.text = @"Hello this is a great label";
@@ -78,6 +78,11 @@
     label.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     [label alignParentRight:YES];
     [relativeLayout addSubview:label];
+    
+    label.userInteractionEnabled = YES;
+    UITapGestureRecognizer *labelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+    [label addGestureRecognizer:labelTap];
+    
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.sizeSpec = CGSizeMake(WRAP_CONTENT, MATCH_PARENT);
@@ -87,6 +92,11 @@
     button.backgroundColor = [UIColor grayColor];
     [relativeLayout addSubview:button];
     
+    button.userInteractionEnabled = YES;
+    UITapGestureRecognizer *buttonTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonTap:)];
+    [button addGestureRecognizer:buttonTap];
+    
+    
     [button layoutRightOf:image];
     [button layoutBelow:image];
     
@@ -94,7 +104,7 @@
     [label alignParentBottom:YES];
 }
 
-- (void)tap:(UIGestureRecognizer *)sender
+- (void)imageTap:(UIGestureRecognizer *)sender
 {
     CGSize spec = sender.view.sizeSpec;
     spec.width += 10;
@@ -105,6 +115,26 @@
     }
     
     sender.view.sizeSpec = spec;
+}
+
+- (void)buttonTap:(UIGestureRecognizer *)sender
+{
+    UIEdgeInsets margin = sender.view.margin;
+    margin.bottom = rand() % 10;
+    margin.left =  rand() % 10;
+    margin.right = rand() % 10;
+    margin.top = rand() % 10;
+    sender.view.margin = margin;
+}
+
+- (void)labelTap:(UIGestureRecognizer *)sender
+{
+    UIEdgeInsets padding = sender.view.padding;
+    padding.bottom = rand() % 10;
+    padding.left =  rand() % 10;
+    padding.right = rand() % 10;
+    padding.top = rand() % 10;
+    sender.view.padding = padding;
 }
 
 - (void)didReceiveMemoryWarning

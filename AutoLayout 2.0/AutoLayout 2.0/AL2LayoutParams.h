@@ -20,4 +20,7 @@
 @property (strong, nonatomic) UIView *belowView;
 @property (strong, nonatomic) UIView *aboveView;
 
+@property (assign, nonatomic) BOOL matchParentWidth;
+@property (assign, nonatomic) BOOL matchParentHeight;
+
 @end

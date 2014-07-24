@@ -67,7 +67,7 @@
     [relativeLayout addSubview:image];
     
     UILabel *label = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
-    label.text = @"Hello this is a great label";
+    label.text = @"Hello this is a great label with more text than we need";
     label.backgroundColor = [UIColor redColor];
     label.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     //[label alignParentRight:YES];
@@ -81,9 +81,12 @@
     button.backgroundColor = [UIColor grayColor];
     [relativeLayout addSubview:button];
     
-    [button layoutRightOf:image];
+    [image layoutLeftOf:button];
+    //[button layoutRightOf:image];
+    [button alignParentRight:YES];
     
     [label layoutRightOf:image];
+    //[label alignParentLeft:YES];
     [label alignParentBottom:YES];
 }
 

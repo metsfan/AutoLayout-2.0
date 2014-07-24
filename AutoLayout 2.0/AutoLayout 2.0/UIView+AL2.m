@@ -86,7 +86,6 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
         
         for (UIView *view in subviews) {
             UIEdgeInsets margin = view.margin;
-            CGRect frame = view.frame;
             
             top = MIN(top, view.frame.origin.y);
             bottom = MAX(bottom, view.frame.origin.y + view.frame.size.height + margin.bottom);

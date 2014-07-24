@@ -16,6 +16,16 @@
     
     [self measure:self.superview.frame.size];
     
+    CGSize size = self.size;
+    if (self.size.width == MATCH_PARENT) {
+        size.width = self.superview.frame.size.width;
+    }
+    
+    if (self.size.height == MATCH_PARENT) {
+        size.width = self.superview.frame.size.height;
+    }
+    self.size = size;
+    
     // Position subviews, this is overriden by derived classes
     [self positionSubviews];
     

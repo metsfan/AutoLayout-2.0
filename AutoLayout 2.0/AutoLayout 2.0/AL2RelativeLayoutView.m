@@ -64,6 +64,18 @@
         frame.origin.x += viewMargin.left;
         frame.origin.y += viewMargin.top;
         
+        int overflow = (frame.origin.x + frame.size.width) - self.size.width;
+        if (self.size.width != WRAP_CONTENT && overflow > 0) {
+            CGSize newSize = CGSizeMake(frame.size.width - overflow - padding.right, frame.size.height);
+            subview.size = CGSizeMake(MATCH_PARENT, frame.size.height);
+            [subview measure:newSize];
+            
+            CGRect oldFrame = frame;
+            frame = subview.frame;
+            frame.origin = oldFrame.origin;
+            frame.size.height = oldFrame.size.height;
+        }
+        
         subview.frame = frame;
     }
 }

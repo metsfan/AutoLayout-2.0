@@ -33,19 +33,20 @@ static BOOL loaded = NO;
 {
     [super measure:parentSize];
     
+    CGSize spec = self.sizeSpec;
     CGSize size = self.size;
     
     UIEdgeInsets padding = self.padding;
     
-    int textWidth = size.width == WRAP_CONTENT ? parentSize.width : size.width;
+    int textWidth = (spec.width == WRAP_CONTENT) ? parentSize.width : size.width;
     textWidth = textWidth - padding.left - padding.right;
     CGRect textSize = [self.text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.font} context:nil];
     
-    if (size.width == WRAP_CONTENT) {
+    if (spec.width == WRAP_CONTENT) {
         size.width = MIN(textSize.size.width, parentSize.width);
     }
     
-    if (size.height == WRAP_CONTENT) {
+    if (spec.height == WRAP_CONTENT) {
         size.height = MIN(textSize.size.height, parentSize.height);
     }
     

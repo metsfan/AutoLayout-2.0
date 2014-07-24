@@ -19,7 +19,13 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 
 - (instancetype)initWithSize:(CGSize)size
 {
-    return [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    self = [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    if (self)
+    {
+        self.sizeSpec = size;
+    }
+    
+    return self;
 }
 
 - (void)measure:(CGSize)parentSize
@@ -27,23 +33,24 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
     UIEdgeInsets margin = self.margin;
     UIEdgeInsets padding = self.padding;
     
+    CGSize spec = self.sizeSpec;
     CGSize size = self.size;
     
     // If the size is set to a defined value, set it up here
-    if (size.width == MATCH_PARENT) {
+    if (spec.width == MATCH_PARENT) {
         size.width = parentSize.width;
     }
     
-    if (size.height == MATCH_PARENT) {
+    if (spec.height == MATCH_PARENT) {
         size.height = parentSize.height;
     }
     
     CGSize measureSize = size;
-    if (size.width == WRAP_CONTENT) {
+    if (spec.width == WRAP_CONTENT) {
         measureSize.width = parentSize.width;
     }
     
-    if (size.height == WRAP_CONTENT) {
+    if (spec.height == WRAP_CONTENT) {
         measureSize.height = parentSize.height;
     }
     
@@ -64,13 +71,14 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 
 - (void)wrapToSubviews
 {
+    CGSize spec = self.sizeSpec;
     CGSize size = self.size;
     NSArray *subviews = self.subviews;
     
     UIEdgeInsets padding = self.padding;
     
     // If the size is wrap content, we can now set the size with our subviews measured
-    if (size.width == WRAP_CONTENT) {
+    if (spec.width == WRAP_CONTENT) {
         int left = INFINITY, right = -INFINITY;
         
         for (UIView *view in subviews) {
@@ -81,15 +89,15 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
         size.width = (right - left) + padding.right + padding.left;
     }
     
-    if (size.height == WRAP_CONTENT) {
+    if (spec.height == WRAP_CONTENT) {
         int top = INFINITY, bottom = -INFINITY;
         
         for (UIView *view in subviews) {
             UIEdgeInsets margin = view.margin;
             CGRect frame = view.frame;
             
-            top = MIN(top, view.frame.origin.y);
-            bottom = MAX(bottom, view.frame.origin.y + view.frame.size.height + margin.bottom);
+            top = MIN(top, frame.origin.y);
+            bottom = MAX(bottom, frame.origin.y + frame.size.height + margin.bottom);
         }
         
         size.height = (bottom - top) + padding.bottom + padding.top;
@@ -130,6 +138,7 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 {
     NSValue *value = [NSValue valueWithUIEdgeInsets:margin];
     objc_setAssociatedObject(self, marginKey, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
 }
 
 - (UIEdgeInsets)margin
@@ -170,12 +179,22 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 {
     NSValue *value = [NSValue valueWithUIEdgeInsets:padding];
     objc_setAssociatedObject(self, paddingKey, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
 }
 
 - (UIEdgeInsets)padding
 {
     NSValue *value = objc_getAssociatedObject(self, paddingKey);
     return [value UIEdgeInsetsValue];
+}
+
+- (void)setSizeSpec:(CGSize)spec
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.spec = spec;
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, spec.width, spec.height);
+    
+    [self setNeedsLayout];
 }
 
 - (void)setSize:(CGSize)size
@@ -186,6 +205,12 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 - (CGSize)size
 {
     return self.frame.size;
+}
+
+- (CGSize)sizeSpec
+{
+    AL2LayoutParams *params = self.layoutParams;
+    return params.spec;
 }
 
 - (void)layoutLeftOf:(UIView *)other

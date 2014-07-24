@@ -38,6 +38,7 @@ static const int WRAP_CONTENT = 0xFF01;
 - (void)alignParentRight:(BOOL)align;
 - (void)alignParentLeft:(BOOL)align;
 
+@property (assign, nonatomic) CGSize sizeSpec;
 @property (assign, nonatomic) CGSize size;
 @property (assign, nonatomic) UIEdgeInsets margin;
 @property (assign, nonatomic) UIEdgeInsets padding;

@@ -16,19 +16,21 @@
     
     [self.titleLabel measure:self.size];
     
-    CGSize size = self.size;
-    if (size.width == WRAP_CONTENT) {
-        size.width = self.titleLabel.size.width;
+    CGSize spec = self.sizeSpec;
+    CGRect frame = self.frame;
+    
+    if (spec.width == WRAP_CONTENT) {
+        frame.size.width = self.titleLabel.frame.size.width;
     }
     
-    if (size.height == WRAP_CONTENT) {
-        size.height = self.titleLabel.size.height;
+    if (spec.height == WRAP_CONTENT) {
+        frame.size.height = self.titleLabel.frame.size.height;
     }
     
     UIEdgeInsets padding = self.padding;
     self.titleEdgeInsets = padding;
     
-    self.size = size;
+    self.frame = frame;
 }
 
 @end

@@ -37,7 +37,7 @@
         frame.size.width += viewPadding.left + viewPadding.right;
         frame.size.height += viewPadding.top + viewPadding.bottom;
         
-        if (layoutParams.alignParentRight && self.size.width != WRAP_CONTENT) {
+        if (layoutParams.alignParentRight && self.sizeSpec.width != WRAP_CONTENT) {
             frame.origin.x = self.size.width - self.padding.right - frame.size.width;
         } else if (layoutParams.leftOfView) {
             CGRect leftOfFrame = layoutParams.leftOfView.frame;
@@ -49,7 +49,7 @@
             frame.origin.x = padding.left;
         }
     
-        if (layoutParams.alignParentBottom && self.size.height != WRAP_CONTENT) {
+        if (layoutParams.alignParentBottom && self.sizeSpec.height != WRAP_CONTENT) {
             frame.origin.y = self.size.height - self.padding.bottom - frame.size.height;
         } else if (layoutParams.aboveView) {
             CGRect aboveFrame = layoutParams.aboveView.frame;
@@ -63,6 +63,11 @@
         
         frame.origin.x += viewMargin.left;
         frame.origin.y += viewMargin.top;
+        
+        if (subview.sizeSpec.width == MATCH_PARENT)
+            frame.size.width = self.frame.size.width - padding.right - frame.origin.x - viewPadding.right;
+        if (subview.sizeSpec.height == MATCH_PARENT)
+            frame.size.height = self.frame.size.height - padding.top - frame.origin.y - viewPadding.bottom;
         
         subview.frame = frame;
     }

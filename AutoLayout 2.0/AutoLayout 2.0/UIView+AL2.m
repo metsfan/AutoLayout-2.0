@@ -19,12 +19,7 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 
 - (instancetype)initWithSize:(CGSize)size
 {
-    self = [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    if (self) {
-        AL2LayoutParams *layoutParams = [AL2LayoutParams new];
-        objc_setAssociatedObject(self, layoutParamsKey, layoutParams, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return self;
+    return [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
 }
 
 - (void)measure:(CGSize)parentSize
@@ -91,6 +86,7 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
         
         for (UIView *view in subviews) {
             UIEdgeInsets margin = view.margin;
+            CGRect frame = view.frame;
             
             top = MIN(top, view.frame.origin.y);
             bottom = MAX(bottom, view.frame.origin.y + view.frame.size.height + margin.bottom);
@@ -247,7 +243,13 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 
 - (AL2LayoutParams *)layoutParams
 {
-    return objc_getAssociatedObject(self, layoutParamsKey);
+    AL2LayoutParams *layoutParams = objc_getAssociatedObject(self, layoutParamsKey);
+    if (!layoutParams) {
+        layoutParams = [AL2LayoutParams new];
+        objc_setAssociatedObject(self, layoutParamsKey, layoutParams, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    
+    return layoutParams;
 }
 
 @end

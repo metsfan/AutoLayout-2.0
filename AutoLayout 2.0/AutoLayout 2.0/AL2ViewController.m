@@ -58,17 +58,33 @@
 
 - (void)testRelativeLayout
 {
-    AL2RelativeLayoutView *relativeLayout = [[AL2RelativeLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, MATCH_PARENT)];
+    AL2RelativeLayoutView *relativeLayout = [[AL2RelativeLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, 250)];
     relativeLayout.backgroundColor = [UIColor greenColor];
+    relativeLayout.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     [self.view addSubview:relativeLayout];
+    
+    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin_no_logo"]];
+    [relativeLayout addSubview:image];
     
     UILabel *label = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
     label.text = @"Hello this is a great label";
     label.backgroundColor = [UIColor redColor];
     label.padding = UIEdgeInsetsMake(10, 10, 10, 10);
-    [label alignParentBottom:YES];
     //[label alignParentRight:YES];
     [relativeLayout addSubview:label];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.size = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
+    [button setTitle:@"Press me" forState:UIControlStateNormal];
+    button.margin = UIEdgeInsetsMake(10, 0, 10, 0);
+    button.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    button.backgroundColor = [UIColor grayColor];
+    [relativeLayout addSubview:button];
+    
+    [button layoutRightOf:image];
+    
+    [label layoutRightOf:image];
+    [label alignParentBottom:YES];
 }
 
 - (void)didReceiveMemoryWarning

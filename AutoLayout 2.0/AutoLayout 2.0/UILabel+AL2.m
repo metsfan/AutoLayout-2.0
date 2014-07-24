@@ -25,13 +25,6 @@ static BOOL loaded = NO;
     if (self) {
         // Set number of lines to infinite by default, user can override this.
         self.numberOfLines = 0;
-        
-        //IMP oldDrawImp = method_getImplementation(oldDraw);
-        
-        //class_replaceMethod([UILabel class], @selector(drawTextInRect:), method_getImplementation(newDraw), method_getTypeEncoding(newDraw));
-        //class_replaceMethod([UILabel class], @selector(originlDrawTextInRect:), method_getImplementation(oldDraw), method_getTypeEncoding(oldDraw));
-        //method_exchangeImplementations(oldDraw, holder);
-        //method_setImplementation(oldDraw, method_getImplementation(holder));
     }
     return self;
 }
@@ -70,13 +63,6 @@ static BOOL loaded = NO;
     rect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetsMake(0, padding.left, 0, padding.right));
     [self newDrawTextInRect:rect];
 }
-
-/*- (void)drawTextInRect:(CGRect)rect
-{
-    rect = UIEdgeInsetsInsetRect(rect, self.padding);
-    //[self originalDrawTextInRect:rect];
-    objc_msgSend(self, @selector(originalDrawTextInRect:), rect);
-}*/
 
 + (void)swizzle
 {

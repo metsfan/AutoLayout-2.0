@@ -83,7 +83,7 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
         
         for (UIView *view in subviews) {
             left = MIN(left, view.frame.origin.x);
-            right = MAX(right, view.frame.origin.x + view.frame.size.width);
+            right = MAX(right, view.frame.origin.x + view.frame.size.width + view.margin.right);
         }
         
         size.width = (right - left) + padding.right + padding.left;
@@ -93,10 +93,8 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
         int top = INFINITY, bottom = -INFINITY;
         
         for (UIView *view in subviews) {
-            UIEdgeInsets margin = view.margin;
-            
-            top = MIN(top, frame.origin.y);
-            bottom = MAX(bottom, frame.origin.y + frame.size.height + margin.bottom);
+            top = MIN(top, view.frame.origin.y);
+            bottom = MAX(bottom, view.frame.origin.y + view.frame.size.height + view.margin.bottom);
         }
         
         size.height = (bottom - top) + padding.bottom + padding.top;

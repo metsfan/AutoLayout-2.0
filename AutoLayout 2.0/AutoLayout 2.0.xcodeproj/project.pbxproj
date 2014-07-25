@@ -31,6 +31,9 @@
 		66FD6900198032F1009A3AF9 /* AL2LayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD68FF198032F1009A3AF9 /* AL2LayoutView.m */; };
 		66FD6903198088F3009A3AF9 /* AL2Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD6902198088F3009A3AF9 /* AL2Utils.m */; };
 		66FD690619808B7D009A3AF9 /* AL2LayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD690519808B7D009A3AF9 /* AL2LayoutParams.m */; };
+		66FD69091981A66C009A3AF9 /* AL2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD69081981A66C009A3AF9 /* AL2TableViewController.m */; };
+		66FD690C1981A76B009A3AF9 /* AL2SampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD690B1981A76B009A3AF9 /* AL2SampleTableViewCell.m */; };
+		66FD690F1981AB6C009A3AF9 /* UITableViewCell+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD690E1981AB6C009A3AF9 /* UITableViewCell+AL2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,12 @@
 		66FD6902198088F3009A3AF9 /* AL2Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2Utils.m; sourceTree = "<group>"; };
 		66FD690419808B7D009A3AF9 /* AL2LayoutParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LayoutParams.h; sourceTree = "<group>"; };
 		66FD690519808B7D009A3AF9 /* AL2LayoutParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LayoutParams.m; sourceTree = "<group>"; };
+		66FD69071981A66C009A3AF9 /* AL2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2TableViewController.h; sourceTree = "<group>"; };
+		66FD69081981A66C009A3AF9 /* AL2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2TableViewController.m; sourceTree = "<group>"; };
+		66FD690A1981A76B009A3AF9 /* AL2SampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2SampleTableViewCell.h; sourceTree = "<group>"; };
+		66FD690B1981A76B009A3AF9 /* AL2SampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2SampleTableViewCell.m; sourceTree = "<group>"; };
+		66FD690D1981AB6C009A3AF9 /* UITableViewCell+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AL2.h"; sourceTree = "<group>"; };
+		66FD690E1981AB6C009A3AF9 /* UITableViewCell+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AL2.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +157,10 @@
 				66FD68C219801AD5009A3AF9 /* Main_iPad.storyboard */,
 				66FD68C519801AD5009A3AF9 /* AL2ViewController.h */,
 				66FD68C619801AD5009A3AF9 /* AL2ViewController.m */,
+				66FD69071981A66C009A3AF9 /* AL2TableViewController.h */,
+				66FD69081981A66C009A3AF9 /* AL2TableViewController.m */,
+				66FD690A1981A76B009A3AF9 /* AL2SampleTableViewCell.h */,
+				66FD690B1981A76B009A3AF9 /* AL2SampleTableViewCell.m */,
 				66FD68C819801AD5009A3AF9 /* Images.xcassets */,
 				66FD68B419801AD5009A3AF9 /* Supporting Files */,
 				66FD68FE198032F1009A3AF9 /* AL2LayoutView.h */,
@@ -169,6 +182,8 @@
 				66FD6902198088F3009A3AF9 /* AL2Utils.m */,
 				66FD690419808B7D009A3AF9 /* AL2LayoutParams.h */,
 				66FD690519808B7D009A3AF9 /* AL2LayoutParams.m */,
+				66FD690D1981AB6C009A3AF9 /* UITableViewCell+AL2.h */,
+				66FD690E1981AB6C009A3AF9 /* UITableViewCell+AL2.m */,
 			);
 			path = "AutoLayout 2.0";
 			sourceTree = "<group>";
@@ -301,14 +316,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FD69091981A66C009A3AF9 /* AL2TableViewController.m in Sources */,
 				66FD68F61980291E009A3AF9 /* UIButton+AL2.m in Sources */,
 				66FD68ED19801B6D009A3AF9 /* UIView+AL2.m in Sources */,
 				66FD68C719801AD5009A3AF9 /* AL2ViewController.m in Sources */,
 				66FD68BE19801AD5009A3AF9 /* AL2AppDelegate.m in Sources */,
 				66FD6903198088F3009A3AF9 /* AL2Utils.m in Sources */,
+				66FD690F1981AB6C009A3AF9 /* UITableViewCell+AL2.m in Sources */,
 				66FD68BA19801AD5009A3AF9 /* main.m in Sources */,
 				66FD68F919802929009A3AF9 /* UILabel+AL2.m in Sources */,
 				66FD68EA19801B45009A3AF9 /* AL2RelativeLayoutView.m in Sources */,
+				66FD690C1981A76B009A3AF9 /* AL2SampleTableViewCell.m in Sources */,
 				66FD68FC19802937009A3AF9 /* UIImageView+AL2.m in Sources */,
 				66FD690619808B7D009A3AF9 /* AL2LayoutParams.m in Sources */,
 				66FD68E719801B30009A3AF9 /* AL2LinearLayoutView.m in Sources */,

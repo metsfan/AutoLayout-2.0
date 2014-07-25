@@ -100,7 +100,7 @@
     [button layoutRightOf:image];
     [button layoutBelow:image];
     
-    [label layoutRightOf:image];
+    [label layoutRightOf:button];
     [label alignParentBottom:YES];
 }
 

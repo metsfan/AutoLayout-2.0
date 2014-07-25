@@ -14,3 +14,4 @@
 #import "UIImageView+AL2.h"
 #import "AL2LinearLayoutView.h"
 #import "AL2RelativeLayoutView.h"
+#import "UITableViewCell+AL2.h"

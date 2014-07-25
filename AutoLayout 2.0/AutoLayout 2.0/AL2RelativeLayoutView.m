@@ -39,44 +39,36 @@
         
         if (layoutParams.alignParentRight && self.sizeSpec.width != WRAP_CONTENT) {
             frame.origin.x = self.size.width - self.padding.right - frame.size.width;
-        } else if (layoutParams.leftOfView) {
+        } else {
+            frame.origin.x = padding.left;
+        }
+        
+        if (layoutParams.leftOfView) {
             CGRect leftOfFrame = layoutParams.leftOfView.frame;
             frame.origin.x = leftOfFrame.origin.x - frame.size.width - layoutParams.leftOfView.margin.right;
         } else if (layoutParams.rightOfView) {
             CGRect rightOfFrame = layoutParams.rightOfView.frame;
             frame.origin.x = rightOfFrame.origin.x + rightOfFrame.size.width + layoutParams.rightOfView.margin.left;
-        } else {
-            frame.origin.x = padding.left;
         }
     
         if (layoutParams.alignParentBottom && self.sizeSpec.height != WRAP_CONTENT) {
             frame.origin.y = self.size.height - self.padding.bottom - frame.size.height;
-        } else if (layoutParams.aboveView) {
+        } else {
+            frame.origin.y = padding.top;
+        }
+        
+        if (layoutParams.aboveView) {
             CGRect aboveFrame = layoutParams.aboveView.frame;
             frame.origin.y = aboveFrame.origin.y - frame.size.height - layoutParams.aboveView.margin.top;
         } else if (layoutParams.belowView) {
             CGRect belowFrame = layoutParams.belowView.frame;
             frame.origin.y = belowFrame.origin.y + belowFrame.size.height + layoutParams.belowView.margin.bottom;
-        } else {
-            frame.origin.y = padding.top;
         }
         
         frame.origin.x += viewMargin.left;
         frame.origin.y += viewMargin.top;
-
-	/*int overflow = (frame.origin.x + frame.size.width) - self.size.width;
-        if (self.size.width != WRAP_CONTENT && overflow > 0) {
-            CGSize newSize = CGSizeMake(frame.size.width - overflow - padding.right, frame.size.height);
-            subview.size = CGSizeMake(MATCH_PARENT, frame.size.height);
-            [subview measure:newSize];
-            
-            CGRect oldFrame = frame;
-            frame = subview.frame;
-            frame.origin = oldFrame.origin;
-            frame.size.height = oldFrame.size.height;
-        }*/
-
-	if (subview.sizeSpec.width == MATCH_PARENT)
+        
+        if (subview.sizeSpec.width == MATCH_PARENT)
             frame.size.width = self.frame.size.width - padding.right - frame.origin.x - viewMargin.right;
         if (subview.sizeSpec.height == MATCH_PARENT)
             frame.size.height = self.frame.size.height - padding.top - frame.origin.y - viewMargin.bottom;
@@ -121,26 +113,50 @@
     
     int dependencyMax = 0;
     
+    NSMutableDictionary *depsCount = [[NSMutableDictionary alloc] init];
+    
+    for (UIView *subview in subviews) {
+        int deps = 0;
+        
+        AL2LayoutParams *params = subview.layoutParams;
+        if (params.leftOfView) {
+            deps++;
+        }
+        
+        if (params.rightOfView) {
+            deps++;
+        }
+        
+        if (params.belowView) {
+            deps++;
+        }
+        
+        if (params.aboveView) {
+            deps++;
+        }
+        
+        [depsCount setObject:@(deps) forKey:@([subview hash])];
+    }
+    
     while (subviews.count > 0) {
         NSArray *copy = [subviews copy];
         for (UIView *subview in copy) {
-            int deps = 0;
-            
+            int deps = [[depsCount objectForKey:@([subview hash])] intValue];
             AL2LayoutParams *params = subview.layoutParams;
             if (params.leftOfView) {
-                deps++;
+                deps += [[depsCount objectForKey:@([params.leftOfView hash])] intValue];
             }
             
             if (params.rightOfView) {
-                deps++;
+                deps += [[depsCount objectForKey:@([params.rightOfView hash])] intValue];
             }
             
             if (params.belowView) {
-                deps++;
+                deps += [[depsCount objectForKey:@([params.belowView hash])] intValue];
             }
             
             if (params.aboveView) {
-                deps++;
+                deps += [[depsCount objectForKey:@([params.aboveView hash])] intValue];
             }
             
             if (deps <= dependencyMax) {

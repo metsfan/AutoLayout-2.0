@@ -47,7 +47,7 @@ static BOOL loaded = NO;
     }
     
     if (spec.height == WRAP_CONTENT) {
-        size.height = MIN(textSize.size.height, parentSize.height);
+        size.height = MAX(textSize.size.height, parentSize.height);
     }
     
     self.size = size;

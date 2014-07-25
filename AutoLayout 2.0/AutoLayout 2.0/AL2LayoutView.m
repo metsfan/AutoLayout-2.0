@@ -15,7 +15,10 @@
     [super layoutSubviews];
     
     [self measure:self.superview.frame.size];
-    
+}
+
+- (void)layoutSubviewsInternal
+{
     // Position subviews, this is overriden by derived classes
     [self positionSubviews];
     
@@ -25,6 +28,13 @@
     if (self.sizeSpec.width == WRAP_CONTENT || self.sizeSpec.height == WRAP_CONTENT) {
         [self wrapToSubviews];
     }
+}
+
+- (void)measure:(CGSize)parentSize
+{
+    [super measure:parentSize];
+    
+    [self layoutSubviewsInternal];
 }
 
 - (void)positionSubviews

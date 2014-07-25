@@ -34,6 +34,7 @@
 		66FD69091981A66C009A3AF9 /* AL2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD69081981A66C009A3AF9 /* AL2TableViewController.m */; };
 		66FD690C1981A76B009A3AF9 /* AL2SampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD690B1981A76B009A3AF9 /* AL2SampleTableViewCell.m */; };
 		66FD690F1981AB6C009A3AF9 /* UITableViewCell+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD690E1981AB6C009A3AF9 /* UITableViewCell+AL2.m */; };
+		66FD69151982EAD9009A3AF9 /* AL2SpaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD69141982EAD9009A3AF9 /* AL2SpaceView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		66FD690B1981A76B009A3AF9 /* AL2SampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2SampleTableViewCell.m; sourceTree = "<group>"; };
 		66FD690D1981AB6C009A3AF9 /* UITableViewCell+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AL2.h"; sourceTree = "<group>"; };
 		66FD690E1981AB6C009A3AF9 /* UITableViewCell+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AL2.m"; sourceTree = "<group>"; };
+		66FD69131982EAD9009A3AF9 /* AL2SpaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2SpaceView.h; sourceTree = "<group>"; };
+		66FD69141982EAD9009A3AF9 /* AL2SpaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2SpaceView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				66FD690519808B7D009A3AF9 /* AL2LayoutParams.m */,
 				66FD690D1981AB6C009A3AF9 /* UITableViewCell+AL2.h */,
 				66FD690E1981AB6C009A3AF9 /* UITableViewCell+AL2.m */,
+				66FD69131982EAD9009A3AF9 /* AL2SpaceView.h */,
+				66FD69141982EAD9009A3AF9 /* AL2SpaceView.m */,
 			);
 			path = "AutoLayout 2.0";
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				66FD690619808B7D009A3AF9 /* AL2LayoutParams.m in Sources */,
 				66FD68E719801B30009A3AF9 /* AL2LinearLayoutView.m in Sources */,
 				66FD6900198032F1009A3AF9 /* AL2LayoutView.m in Sources */,
+				66FD69151982EAD9009A3AF9 /* AL2SpaceView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

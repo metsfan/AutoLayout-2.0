@@ -19,14 +19,14 @@
     [super viewDidLoad];
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    //[self testLinearLayout];
-    [self testRelativeLayout];
+    [self testLinearLayout];
+    //[self testRelativeLayout];
 }
 
 - (void)testLinearLayout
 {
     
-    AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
+    AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
     linearLayout.backgroundColor = [UIColor greenColor];
     linearLayout.orientation = kAL2LinearLayoutVertical;
     linearLayout.padding = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -40,22 +40,29 @@
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin_no_logo"]];
     [linearLayout addSubview:image];
-    image.visibilty = kAL2VisibilityInvisible;
+    //image.visibilty = kAL2VisibilityInvisible;
+    
+    AL2LinearLayoutView *linearLayout2 = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    linearLayout2.backgroundColor = [UIColor greenColor];
+    linearLayout2.orientation = kAL2LinearLayoutHorizontal;
+    linearLayout2.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    [linearLayout addSubview:linearLayout2];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
     [button setTitle:@"Press me" forState:UIControlStateNormal];
-    button.margin = UIEdgeInsetsMake(10, 0, 10, 0);
-    button.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    //button.margin = UIEdgeInsetsMake(10, 0, 10, 0);
+    //button.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     button.backgroundColor = [UIColor grayColor];
-    [linearLayout addSubview:button];
+    [linearLayout2 addSubview:button];
     
-    UILabel *label2 = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    
+    UILabel *label2 = [[UILabel alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
     label2.text = @"This is another great label with more text than the other one";
     label2.backgroundColor = [UIColor blueColor];
-    label2.margin = UIEdgeInsetsMake(15, 15, 15, 15);
-    label2.padding = UIEdgeInsetsMake(10, 10, 10, 10);
-    [linearLayout addSubview:label2];
+    //label2.margin = UIEdgeInsetsMake(15, 15, 15, 15);
+    //label2.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    [linearLayout2 addSubview:label2];
 }
 
 - (void)testRelativeLayout

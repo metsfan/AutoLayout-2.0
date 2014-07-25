@@ -15,6 +15,17 @@ typedef enum {
     kAL2VisibilityGone
 } AL2Visibility;
 
+typedef enum {
+    kAL2AlignmentInherit = (1 << 0),
+    kAL2AlignmentLeft = (1 << 1),
+    kAL2AlignmentRight = (1 << 2),
+    kAL2AlignmentBottom = (1 << 3),
+    kAL2AlignmentTop = (1 << 4),
+    kAL2AlignmentCenterHorizontal = (1 << 5),
+    kAL2AlignmentCenterVertical = (1 << 6),
+    kAL2AlignmentCenter = kAL2AlignmentCenterVertical | kAL2AlignmentCenterHorizontal
+} AL2Alignment;
+
 @interface AL2LayoutParams : NSObject
 
 // Original intended size (WRAP_CONTENT, MATCH_PARENT, or pixels)
@@ -28,9 +39,10 @@ typedef enum {
 @property (strong, nonatomic) UIView *belowView;
 @property (strong, nonatomic) UIView *aboveView;
 
-@property (assign, nonatomic) BOOL matchParentWidth;
-@property (assign, nonatomic) BOOL matchParentHeight;
-
 @property (assign, nonatomic) AL2Visibility visibility;
+
+@property (assign, nonatomic) AL2Alignment align;
+@property (assign, nonatomic) AL2Alignment alignSubviews;
+@property (assign, nonatomic) NSUInteger layoutWeight;
 
 @end

@@ -39,10 +39,13 @@ static const int CONSTANT_MASK = 0xFF00;
 - (void)alignParentRight:(BOOL)align;
 - (void)alignParentLeft:(BOOL)align;
 
+- (void)parentNeedsLayout;
+
 @property (assign, nonatomic) CGSize sizeSpec;
 @property (assign, nonatomic) CGSize size;
 @property (assign, nonatomic) UIEdgeInsets margin;
 @property (assign, nonatomic) UIEdgeInsets padding;
 @property (strong, nonatomic) AL2LayoutParams *layoutParams;
+@property (assign, nonatomic) AL2Visibility visibilty;
 
 @end

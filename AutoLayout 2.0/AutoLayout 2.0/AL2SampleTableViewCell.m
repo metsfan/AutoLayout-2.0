@@ -21,10 +21,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.layoutView = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+        self.layoutView.backgroundColor = [UIColor greenColor];
         
         _label = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
         _label.text = @"Welcome to my table";
         _label.font = [UIFont systemFontOfSize:50];
+        //_label.backgroundColor = [UIColor redColor];
         [self.layoutView addSubview:_label];
     }
     return self;
@@ -45,6 +47,11 @@
 - (void)setText:(NSString *)text
 {
     _label.text = text;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
 }
 
 @end

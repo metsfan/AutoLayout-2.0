@@ -40,6 +40,7 @@
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin_no_logo"]];
     [linearLayout addSubview:image];
+    image.visibilty = kAL2VisibilityInvisible;
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
@@ -76,7 +77,7 @@
     label.text = @"Hello this is a great label";
     label.backgroundColor = [UIColor redColor];
     label.padding = UIEdgeInsetsMake(10, 10, 10, 10);
-    [label alignParentRight:YES];
+    //[label alignParentRight:YES];
     [relativeLayout addSubview:label];
     
     label.userInteractionEnabled = YES;
@@ -85,11 +86,12 @@
     
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.sizeSpec = CGSizeMake(WRAP_CONTENT, MATCH_PARENT);
+    button.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
     [button setTitle:@"Press me" forState:UIControlStateNormal];
     button.margin = UIEdgeInsetsMake(10, 0, 10, 0);
     button.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     button.backgroundColor = [UIColor grayColor];
+    button.visibilty = kAL2VisibilityGone;
     [relativeLayout addSubview:button];
     
     button.userInteractionEnabled = YES;

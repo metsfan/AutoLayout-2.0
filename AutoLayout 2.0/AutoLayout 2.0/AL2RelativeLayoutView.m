@@ -45,10 +45,18 @@
         
         if (layoutParams.leftOfView) {
             CGRect leftOfFrame = layoutParams.leftOfView.frame;
-            frame.origin.x = leftOfFrame.origin.x - frame.size.width - layoutParams.leftOfView.margin.right;
+            UIEdgeInsets otherMargin = layoutParams.leftOfView.margin;
+            if (layoutParams.leftOfView.visibilty == kAL2VisibilityGone) {
+                otherMargin = UIEdgeInsetsZero;
+            }
+            frame.origin.x = leftOfFrame.origin.x - frame.size.width - otherMargin.right;
         } else if (layoutParams.rightOfView) {
             CGRect rightOfFrame = layoutParams.rightOfView.frame;
-            frame.origin.x = rightOfFrame.origin.x + rightOfFrame.size.width + layoutParams.rightOfView.margin.left;
+            UIEdgeInsets otherMargin = layoutParams.rightOfView.margin;
+            if (layoutParams.rightOfView.visibilty == kAL2VisibilityGone) {
+                otherMargin = UIEdgeInsetsZero;
+            }
+            frame.origin.x = rightOfFrame.origin.x + rightOfFrame.size.width + otherMargin.left;
         }
     
         if (layoutParams.alignParentBottom && self.sizeSpec.height != WRAP_CONTENT) {
@@ -59,10 +67,18 @@
         
         if (layoutParams.aboveView) {
             CGRect aboveFrame = layoutParams.aboveView.frame;
-            frame.origin.y = aboveFrame.origin.y - frame.size.height - layoutParams.aboveView.margin.top;
+            UIEdgeInsets otherMargin = layoutParams.aboveView.margin;
+            if (layoutParams.aboveView.visibilty == kAL2VisibilityGone) {
+                otherMargin = UIEdgeInsetsZero;
+            }
+            frame.origin.y = aboveFrame.origin.y - frame.size.height - otherMargin.top;
         } else if (layoutParams.belowView) {
             CGRect belowFrame = layoutParams.belowView.frame;
-            frame.origin.y = belowFrame.origin.y + belowFrame.size.height + layoutParams.belowView.margin.bottom;
+            UIEdgeInsets otherMargin = layoutParams.belowView.margin;
+            if (layoutParams.belowView.visibilty == kAL2VisibilityGone) {
+                otherMargin = UIEdgeInsetsZero;
+            }
+            frame.origin.y = belowFrame.origin.y + belowFrame.size.height + otherMargin.bottom;
         }
         
         frame.origin.x += viewMargin.left;

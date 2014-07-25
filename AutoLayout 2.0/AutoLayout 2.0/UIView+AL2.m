@@ -36,37 +36,43 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
     CGSize spec = self.sizeSpec;
     CGSize size = self.size;
     
-    // If the size is set to a defined value, set it up here
-    if (spec.width == MATCH_PARENT) {
-        size.width = parentSize.width;
+    if (self.visibilty == kAL2VisibilityGone) {
+        self.hidden = YES;
+        self.frame = CGRectZero;
+    } else {
+        // If the size is set to a defined value, set it up here
+        if (spec.width == MATCH_PARENT) {
+            size.width = parentSize.width;
+        }
+        
+        if (spec.height == MATCH_PARENT) {
+            size.height = parentSize.height;
+        }
+        
+        CGSize measureSize = size;
+        if (spec.width == WRAP_CONTENT) {
+            measureSize.width = parentSize.width;
+        }
+        
+        if (spec.height == WRAP_CONTENT) {
+            measureSize.height = parentSize.height;
+        }
+        
+        // Measure subviews
+        
+        NSArray *subviews = self.subviews;
+        for (UIView *view in subviews) {
+            CGSize viewMeasureSize = measureSize;
+            UIEdgeInsets viewMargin = view.margin;
+            UIEdgeInsets viewPadding = view.padding;
+            viewMeasureSize.width = viewMeasureSize.width - viewMargin.right - viewMargin.left - padding.left - padding.right - margin.right - viewPadding.right - viewPadding.left;
+            viewMeasureSize.height = viewMeasureSize.height - viewMargin.bottom - viewMargin.top - padding.top - padding.bottom - margin.bottom - viewPadding.bottom - viewPadding.top;
+            [view measure:viewMeasureSize];
+        }
+        
+        self.size = size;
+        self.hidden = self.visibilty == kAL2VisibilityInvisible;
     }
-    
-    if (spec.height == MATCH_PARENT) {
-        size.height = parentSize.height;
-    }
-    
-    CGSize measureSize = size;
-    if (spec.width == WRAP_CONTENT) {
-        measureSize.width = parentSize.width;
-    }
-    
-    if (spec.height == WRAP_CONTENT) {
-        measureSize.height = parentSize.height;
-    }
-    
-    // Measure subviews
-    
-    NSArray *subviews = self.subviews;
-    for (UIView *view in subviews) {
-        CGSize viewMeasureSize = measureSize;
-        UIEdgeInsets viewMargin = view.margin;
-        UIEdgeInsets viewPadding = view.padding;
-        viewMeasureSize.width = viewMeasureSize.width - viewMargin.right - viewMargin.left - padding.left - padding.right - margin.right - viewPadding.right - viewPadding.left;
-        viewMeasureSize.height = viewMeasureSize.height - viewMargin.bottom - viewMargin.top - padding.top - padding.bottom - margin.bottom - viewPadding.bottom - viewPadding.top;
-        [view measure:viewMeasureSize];
-    }
-    
-    self.size = size;
 }
 
 - (void)wrapToSubviews
@@ -281,6 +287,21 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
     }
     
     return layoutParams;
+}
+
+- (void)setVisibilty:(AL2Visibility)visibilty
+{
+    AL2LayoutParams *params = self.layoutParams;
+    params.visibility = visibilty;
+    
+    [self parentNeedsLayout];
+    
+    self.layoutParams = params;
+}
+
+- (AL2Visibility)visibilty
+{
+    return self.layoutParams.visibility;
 }
 
 - (void)parentNeedsLayout

@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    kAL2VisibilityVisible,
+    kAL2VisibilityInvisible,
+    kAL2VisibilityGone
+} AL2Visibility;
+
 @interface AL2LayoutParams : NSObject
 
 // Original intended size (WRAP_CONTENT, MATCH_PARENT, or pixels)
@@ -24,5 +30,7 @@
 
 @property (assign, nonatomic) BOOL matchParentWidth;
 @property (assign, nonatomic) BOOL matchParentHeight;
+
+@property (assign, nonatomic) AL2Visibility visibility;
 
 @end

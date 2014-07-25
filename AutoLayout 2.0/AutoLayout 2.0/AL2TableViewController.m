@@ -47,10 +47,8 @@ static NSString *strings[] = {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AL2SampleTableViewCell *cell = (AL2SampleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Sample"];
-    
-    cell = [[AL2SampleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Sample"];
+
     cell.text = strings[indexPath.row];
-    [cell layoutIfNeeded];
     
     return cell;
 }

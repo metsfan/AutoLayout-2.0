@@ -47,7 +47,7 @@ static BOOL loaded = NO;
     }
     
     if (spec.height == WRAP_CONTENT) {
-        size.height = MAX(textSize.size.height, parentSize.height);
+        size.height = textSize.size.height;
     }
     
     self.size = size;
@@ -65,10 +65,26 @@ static BOOL loaded = NO;
     [self newDrawTextInRect:rect];
 }
 
+- (void)newSetText:(NSString *)text
+{
+    [self newSetText:text];
+    [self parentNeedsLayout];
+}
+
+- (void)newSetFont:(UIFont *)font
+{
+    [self newSetFont:font];
+    [self parentNeedsLayout];
+}
+
 + (void)swizzle
 {
     Class klass = [UILabel class];
     [AL2Utils swizzleMethod:@selector(drawTextInRect:) in:klass with:@selector(newDrawTextInRect:) in:klass];
+    [AL2Utils swizzleMethod:@selector(setText:) in:klass with:@selector(newSetText:) in:klass];
+    [AL2Utils swizzleMethod:@selector(setFont:) in:klass with:@selector(newSetFont:) in:klass];
 }
+
+
 
 @end

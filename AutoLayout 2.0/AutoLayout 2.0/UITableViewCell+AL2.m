@@ -26,7 +26,7 @@ static const char *layoutViewKey = "autolayout2.key.tableviewcell.layoutview";
     }
     
     if (layoutView) {
-        [self.contentView addSubview:layoutView];
+        [self addSubview:layoutView];
     }
     
     objc_setAssociatedObject(self, layoutViewKey, layoutView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

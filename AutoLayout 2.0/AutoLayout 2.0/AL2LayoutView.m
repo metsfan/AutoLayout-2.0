@@ -22,7 +22,7 @@
     // Apply padding to size
     
     // Wrap content if needed
-    if (self.size.width == WRAP_CONTENT || self.size.height == WRAP_CONTENT) {
+    if (self.sizeSpec.width == WRAP_CONTENT || self.sizeSpec.height == WRAP_CONTENT) {
         [self wrapToSubviews];
     }
 }

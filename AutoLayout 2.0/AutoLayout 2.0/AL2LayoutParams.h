@@ -16,7 +16,7 @@ typedef enum {
 } AL2Visibility;
 
 typedef enum {
-    kAL2AlignmentInherit = (1 << 0),
+    kAL2AlignmentInherit = 0,
     kAL2AlignmentLeft = (1 << 1),
     kAL2AlignmentRight = (1 << 2),
     kAL2AlignmentBottom = (1 << 3),

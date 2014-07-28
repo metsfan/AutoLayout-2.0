@@ -28,6 +28,8 @@
     if (self.sizeSpec.width == WRAP_CONTENT || self.sizeSpec.height == WRAP_CONTENT) {
         [self wrapToSubviews];
     }
+    
+    [self postLayout];
 }
 
 - (void)measure:(CGSize)parentSize
@@ -39,6 +41,11 @@
 
 - (void)positionSubviews
 {
+}
+
+- (void)postLayout
+{
+    
 }
 
 @end

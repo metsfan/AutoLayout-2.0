@@ -19,7 +19,8 @@
     [super viewDidLoad];
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    [self testLinearLayout];
+    //[self testLinearLayout];
+    [self testLinearLayoutAlignment];
     //[self testRelativeLayout];
 }
 
@@ -38,8 +39,7 @@
     label.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     [linearLayout addSubview:label];
     
-    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin_no_logo"]];
-    [linearLayout addSubview:image];
+    
     //image.visibilty = kAL2VisibilityInvisible;
     
     AL2LinearLayoutView *linearLayout2 = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
@@ -63,7 +63,32 @@
     //label2.margin = UIEdgeInsetsMake(15, 15, 15, 15);
     //label2.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     [linearLayout2 addSubview:label2];
+    
+    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin_no_logo"]];
+    [linearLayout addSubview:image];
 }
+
+- (void)testLinearLayoutAlignment
+{
+    
+    AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, MATCH_PARENT)];
+    linearLayout.backgroundColor = [UIColor greenColor];
+    linearLayout.orientation = kAL2LinearLayoutHorizontal;
+    //linearLayout.orientation = kAL2LinearLayoutHorizontal;
+    //linearLayout.layoutParams.alignSubviews = kAL2AlignmentBottom | kAL2AlignmentCenterHorizontal;
+    linearLayout.layoutParams.alignSubviews = kAL2AlignmentTop | kAL2AlignmentCenterHorizontal;
+    [self.view addSubview:linearLayout];
+    
+    UILabel *label = [[UILabel alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
+    label.text = @"Sample Text 1";
+    //label.layoutParams.align = kAL2AlignmentCenter;
+    [linearLayout addSubview:label];
+    
+    UILabel *label2 = [[UILabel alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
+    label2.text = @"Sample Text 2";
+    [linearLayout addSubview:label2];
+}
+
 
 - (void)testRelativeLayout
 {

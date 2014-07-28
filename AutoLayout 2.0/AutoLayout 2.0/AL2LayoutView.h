@@ -11,5 +11,6 @@
 @interface AL2LayoutView : UIView
 
 - (void)positionSubviews;
+- (void)postLayout;
 
 @end

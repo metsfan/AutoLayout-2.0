@@ -39,6 +39,8 @@
         
         if (layoutParams.alignParentRight && self.sizeSpec.width != WRAP_CONTENT) {
             frame.origin.x = self.size.width - self.padding.right - frame.size.width;
+        } else if(layoutParams.align & kAL2AlignmentCenterHorizontal) {
+            frame.origin.x = (self.size.width - frame.size.width) * 0.5;
         } else {
             frame.origin.x = padding.left;
         }
@@ -61,6 +63,8 @@
     
         if (layoutParams.alignParentBottom && self.sizeSpec.height != WRAP_CONTENT) {
             frame.origin.y = self.size.height - self.padding.bottom - frame.size.height;
+        } else if(layoutParams.align & kAL2AlignmentCenterVertical) {
+            frame.origin.y = (self.size.height - frame.size.height) * 0.5;
         } else {
             frame.origin.y = padding.top;
         }
@@ -104,10 +108,14 @@
         
         if (layoutParams.alignParentRight) {
             frame.origin.x = self.size.width - self.padding.right - frame.size.width;
+        } else if(layoutParams.align & kAL2AlignmentCenterHorizontal) {
+            frame.origin.x = (self.size.width - self.padding.right - frame.size.width) * 0.5;
         }
         
         if (layoutParams.alignParentBottom) {
             frame.origin.y = self.size.height - self.padding.bottom - frame.size.height;
+        } else if(layoutParams.align & kAL2AlignmentCenterVertical) {
+            frame.origin.y = (self.size.height - self.padding.bottom - frame.size.height) * 0.5;
         }
         
         subview.frame = frame;

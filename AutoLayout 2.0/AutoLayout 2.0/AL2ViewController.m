@@ -20,8 +20,8 @@
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
     //[self testLinearLayout];
-    [self testLinearLayoutAlignment];
-    //[self testRelativeLayout];
+    //[self testLinearLayoutAlignment];
+    [self testRelativeLayout];
 }
 
 - (void)testLinearLayout
@@ -98,7 +98,8 @@
     [self.view addSubview:relativeLayout];
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin_no_logo"]];
-    image.sizeSpec = CGSizeMake(10, 10);
+    image.sizeSpec = CGSizeMake(280, 200);
+    image.layoutParams.align = kAL2AlignmentCenter;
     [relativeLayout addSubview:image];
     
     image.userInteractionEnabled = YES;
@@ -110,7 +111,7 @@
     label.backgroundColor = [UIColor redColor];
     label.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     //[label alignParentRight:YES];
-    [relativeLayout addSubview:label];
+    //[relativeLayout addSubview:label];
     
     label.userInteractionEnabled = YES;
     UITapGestureRecognizer *labelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
@@ -123,8 +124,8 @@
     button.margin = UIEdgeInsetsMake(10, 0, 10, 0);
     button.padding = UIEdgeInsetsMake(10, 10, 10, 10);
     button.backgroundColor = [UIColor grayColor];
-    button.visibilty = kAL2VisibilityGone;
-    [relativeLayout addSubview:button];
+    //button.visibilty = kAL2VisibilityGone;
+    //[relativeLayout addSubview:button];
     
     button.userInteractionEnabled = YES;
     UITapGestureRecognizer *buttonTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonTap:)];

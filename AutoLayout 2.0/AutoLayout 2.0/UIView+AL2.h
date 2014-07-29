@@ -10,7 +10,6 @@
 
 static const int MATCH_PARENT = 0xFF00;
 static const int WRAP_CONTENT = 0xFF01;
-static const int CONSTANT_MASK = 0xFF00;
 
 @interface UIView (AL2)
 
@@ -49,5 +48,7 @@ static const int CONSTANT_MASK = 0xFF00;
 @property (assign, nonatomic) UIEdgeInsets padding;
 @property (strong, nonatomic) AL2LayoutParams *layoutParams;
 @property (assign, nonatomic) AL2Visibility visibilty;
+@property (assign, nonatomic) AL2Alignment align;
+@property (assign, nonatomic) AL2Alignment alignSubviews;
 
 @end

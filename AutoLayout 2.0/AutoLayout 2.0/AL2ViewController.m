@@ -19,9 +19,86 @@
     [super viewDidLoad];
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    [self testLinearLayout];
+    //[self testLinearLayout];
     //[self testLinearLayoutAlignment];
     //[self testRelativeLayout];
+    [self testRelativeLayout2];
+}
+
+- (void)testRelativeLayout2
+{
+    AL2RelativeLayoutView *mainLayout = [[AL2RelativeLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, MATCH_PARENT)];
+    mainLayout.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:mainLayout];
+    
+    // Stream button
+    UIButton *stream = [UIButton buttonWithType:UIButtonTypeCustom];
+    stream.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
+    [stream setBackgroundImage:[UIImage imageNamed:@"stream-button"] forState:UIControlStateNormal];
+    
+    [stream alignParentLeft:YES];
+    [stream alignParentTop:YES];
+    stream.margin = UIEdgeInsetsMake(15, 10, 0, 0);
+    
+    [mainLayout addSubview:stream];
+    
+    // Search button
+    UIButton *search = [UIButton buttonWithType:UIButtonTypeCustom];
+    search.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
+    [search setBackgroundImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
+    
+    [search alignParentRight:YES];
+    [search alignParentTop:YES];
+    search.margin = UIEdgeInsetsMake(15, 0, 0, 10);
+    
+    [mainLayout addSubview:search];
+    
+    // Center logo
+    UIImageView *citymaps = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky-logo"]];
+    
+    citymaps.align = kAL2AlignmentCenterHorizontal;
+    [citymaps setTopMargin:10];
+    
+    [mainLayout addSubview:citymaps];
+    
+    // Compass
+    UIImageView *compass = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass-container"]];
+    
+    [compass alignParentRight:YES];
+    [compass layoutBelow:search];
+    compass.margin = UIEdgeInsetsMake(5, 0, 0, 10);
+    
+    [mainLayout addSubview:compass];
+    
+    // Compass needle
+    UIImageView *compassNeedle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass-needle"]];
+    [compass addSubview:compassNeedle];
+    
+    // Find me container
+    AL2LinearLayoutView *gpsView = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
+    gpsView.orientation = kAL2LinearLayoutHorizontal;
+    gpsView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"find_me_base"]];
+    
+    [gpsView alignParentRight:YES];
+    [gpsView alignParentBottom:YES];
+    gpsView.margin = UIEdgeInsetsMake(0, 0, 10, 10);
+    
+    [mainLayout addSubview:gpsView];
+    
+    // Pins button
+    UIButton *pinsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    pinsButton.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
+    [pinsButton setBackgroundImage:[UIImage imageNamed:@"find_me_pins_on"] forState:UIControlStateNormal];
+    [gpsView addSubview:pinsButton];
+    
+    // Find me button
+    UIButton *findMeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    findMeButton.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
+    [findMeButton setBackgroundImage:[UIImage imageNamed:@"find_me_default"] forState:UIControlStateNormal];
+    [gpsView addSubview:findMeButton];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(containerTap:)];
+    [mainLayout addGestureRecognizer:tap];
 }
 
 - (void)testLinearLayout
@@ -179,6 +256,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)containerTap:(UIGestureRecognizer *)tap
+{
+    AL2RelativeLayoutView *view = (AL2RelativeLayoutView *)tap.view;
+    view.sizeSpec = CGSizeMake(MATCH_PARENT, 300);
 }
 
 @end

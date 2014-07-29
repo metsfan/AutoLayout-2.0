@@ -326,4 +326,24 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
                       self.size.height - self.margin.top - self.margin.bottom - self.padding.top - self.padding.bottom);
 }
 
+- (void)setAlign:(AL2Alignment)align
+{
+    self.layoutParams.align = align;
+}
+
+- (AL2Alignment)align
+{
+    return self.layoutParams.align;
+}
+
+- (void)setAlignSubviews:(AL2Alignment)alignSubviews
+{
+    self.layoutParams.alignSubviews = alignSubviews;
+}
+
+- (AL2Alignment)alignSubviews
+{
+    return self.layoutParams.alignSubviews;
+}
+
 @end

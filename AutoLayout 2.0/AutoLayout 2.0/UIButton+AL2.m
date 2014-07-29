@@ -20,11 +20,11 @@
     CGRect frame = self.frame;
     
     if (spec.width == WRAP_CONTENT) {
-        frame.size.width = self.titleLabel.frame.size.width;
+        frame.size.width = MAX(self.titleLabel.frame.size.width, [self backgroundImageForState:UIControlStateNormal].size.width);
     }
     
     if (spec.height == WRAP_CONTENT) {
-        frame.size.height = self.titleLabel.frame.size.height;
+        frame.size.height = MAX(self.titleLabel.frame.size.width, [self backgroundImageForState:UIControlStateNormal].size.height);
     }
     
     UIEdgeInsets padding = self.padding;

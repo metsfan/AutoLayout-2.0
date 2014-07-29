@@ -38,7 +38,7 @@
         frame.size.height += viewPadding.top + viewPadding.bottom;
         
         if (layoutParams.alignParentRight && self.sizeSpec.width != WRAP_CONTENT) {
-            frame.origin.x = self.size.width - self.padding.right - frame.size.width;
+            frame.origin.x = self.size.width - self.padding.right - frame.size.width - viewMargin.right;
         } else if(layoutParams.align & kAL2AlignmentCenterHorizontal) {
             frame.origin.x = (self.size.width - frame.size.width) * 0.5;
         } else {
@@ -62,7 +62,7 @@
         }
     
         if (layoutParams.alignParentBottom && self.sizeSpec.height != WRAP_CONTENT) {
-            frame.origin.y = self.size.height - self.padding.bottom - frame.size.height;
+            frame.origin.y = self.size.height - self.padding.bottom - frame.size.height - viewMargin.bottom;
         } else if(layoutParams.align & kAL2AlignmentCenterVertical) {
             frame.origin.y = (self.size.height - frame.size.height) * 0.5;
         } else {

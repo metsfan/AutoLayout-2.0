@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[AL2LinearLayoutView postLayout]:AL2LinearLayoutView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AL2RelativeLayoutView positionSubviews]:AL2RelativeLayoutView.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -41,6 +41,8 @@ static const int CONSTANT_MASK = 0xFF00;
 
 - (void)parentNeedsLayout;
 
+- (CGSize)measureSize;
+
 @property (assign, nonatomic) CGSize sizeSpec;
 @property (assign, nonatomic) CGSize size;
 @property (assign, nonatomic) UIEdgeInsets margin;

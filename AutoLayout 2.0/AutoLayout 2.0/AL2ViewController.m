@@ -19,18 +19,19 @@
     [super viewDidLoad];
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    //[self testLinearLayout];
+    [self testLinearLayout];
     //[self testLinearLayoutAlignment];
-    [self testRelativeLayout];
+    //[self testRelativeLayout];
 }
 
 - (void)testLinearLayout
 {
     
-    AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, MATCH_PARENT)];
     linearLayout.backgroundColor = [UIColor greenColor];
     linearLayout.orientation = kAL2LinearLayoutVertical;
     linearLayout.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    //linearLayout.layoutParams.alignSubviews = kAL2AlignmentCenterVertical;
     [self.view addSubview:linearLayout];
     
     UILabel *label = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
@@ -46,6 +47,8 @@
     linearLayout2.backgroundColor = [UIColor greenColor];
     linearLayout2.orientation = kAL2LinearLayoutHorizontal;
     linearLayout2.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    linearLayout2.layoutParams.alignSubviews = kAL2AlignmentCenterHorizontal;
+    linearLayout2.backgroundColor = [UIColor yellowColor];
     [linearLayout addSubview:linearLayout2];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -58,7 +61,7 @@
     
     
     UILabel *label2 = [[UILabel alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
-    label2.text = @"This is another great label with more text than the other one";
+    label2.text = @"hi";
     label2.backgroundColor = [UIColor blueColor];
     //label2.margin = UIEdgeInsetsMake(15, 15, 15, 15);
     //label2.padding = UIEdgeInsetsMake(10, 10, 10, 10);

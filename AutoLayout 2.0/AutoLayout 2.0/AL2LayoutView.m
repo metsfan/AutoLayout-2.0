@@ -14,7 +14,7 @@
 {
     [super layoutSubviews];
     
-    [self measure:self.superview.frame.size];
+    [self measure:[self.superview measureSize]];
 }
 
 - (void)layoutSubviewsInternal

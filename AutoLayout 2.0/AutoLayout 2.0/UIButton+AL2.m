@@ -14,7 +14,7 @@
 {
     [super measure:parentSize];
     
-    [self.titleLabel measure:self.size];
+    //[self.titleLabel measure:self.size];
     
     CGSize spec = self.sizeSpec;
     CGRect frame = self.frame;

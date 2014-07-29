@@ -50,6 +50,7 @@
             
         }
     } else {
+        
         for (UIView *view in self.subviews) {
             UIEdgeInsets viewMargin = view.margin;
             UIEdgeInsets viewPadding = view.padding;
@@ -59,8 +60,6 @@
             if (align == kAL2AlignmentInherit) {
                 align = defaultAlign;
             }
-            
-            
             
             CGRect frame = view.frame;
             frame.origin = viewOffset;
@@ -84,9 +83,18 @@
     AL2Alignment defaultAlign = self.layoutParams.alignSubviews;
     
     if (_orientation == kAL2LinearLayoutHorizontal) {
-        int rightOffset = self.frame.size.width;
+        int rightOffset = [self measureSize].width;
+
+        int left = INFINITY, right = -INFINITY;
+        for (UIView *view in self.subviews) {
+            left = MIN(left, view.frame.origin.x);
+            right = MAX(right, view.frame.size.width + view.frame.origin.x);
+        }
         
-        for (int i = self.subviews.count - 1; i >= 0; i--) {
+        int wrappedWidth = right - left;
+        int wrappedOffset = (rightOffset - wrappedWidth) * 0.5;
+        
+        for (NSInteger i = self.subviews.count - 1; i >= 0; i--) {
             UIView *view = self.subviews[i];
             
             AL2Alignment align = view.layoutParams.align;
@@ -106,7 +114,7 @@
             if (align & kAL2AlignmentRight) {
                 frame.origin.x = rightOffset - frame.size.width;
             } else if (align & kAL2AlignmentCenterHorizontal) {
-                frame.origin.x += frame.size.width * 0.5;
+                frame.origin.x += wrappedOffset;
             }
             
             rightOffset -= frame.size.width;
@@ -114,15 +122,15 @@
             view.frame = frame;
         }
     } else {
-        int bottomOffset = self.frame.size.height;
+        int bottomOffset = [self measureSize].height;
         int wrappedHeight = 0;
         for (UIView *view in self.subviews) {
             wrappedHeight += view.frame.size.height;
         }
         
-        int wrappedOffset = bottomOffset - wrappedHeight;
+        int wrappedOffset = (bottomOffset - wrappedHeight) * 0.5;
         
-        for (int i = self.subviews.count - 1; i >= 0; i--) {
+        for (NSInteger i = self.subviews.count - 1; i >= 0; i--) {
             UIView *view = self.subviews[i];
             
             AL2Alignment align = view.layoutParams.align;
@@ -143,11 +151,10 @@
             if (align & kAL2AlignmentBottom) {
                 frame.origin.y = bottomOffset - frame.size.height;
             } else if (align & kAL2AlignmentCenterVertical) {
-                frame.origin.y += (wrappedOffset - frame.size.height) * 0.5;
+                frame.origin.y += wrappedOffset;
             }
             
             bottomOffset -= frame.size.height;
-
             view.frame = frame;
         }
     }

@@ -320,4 +320,10 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
     }
 }
 
+- (CGSize)measureSize
+{
+    return CGSizeMake(self.size.width - self.margin.left - self.margin.right - self.padding.left - self.padding.right,
+                      self.size.height - self.margin.top - self.margin.bottom - self.padding.top - self.padding.bottom);
+}
+
 @end

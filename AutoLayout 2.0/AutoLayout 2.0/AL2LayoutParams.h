@@ -45,4 +45,6 @@ typedef enum {
 @property (assign, nonatomic) AL2Alignment alignSubviews;
 @property (assign, nonatomic) NSUInteger layoutWeight;
 
+@property (assign, nonatomic) UIEdgeInsets measureBounds;
+
 @end

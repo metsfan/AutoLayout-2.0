@@ -19,10 +19,36 @@
     [super viewDidLoad];
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    //[self testLinearLayout];
+    [self testLinearLayout];
     //[self testLinearLayoutAlignment];
     //[self testRelativeLayout];
-    [self testRelativeLayout2];
+    //[self testRelativeLayout2];
+}
+
+- (void)testRelativeLayout3
+{
+    AL2RelativeLayoutView *mainLayout = [[AL2RelativeLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    mainLayout.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:mainLayout];
+    
+    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stream-button"]];
+    //image.visibilty = kAL2VisibilityGone;
+    [mainLayout addSubview:image];
+    
+    UILabel *label = [[UILabel alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
+    label.text = @"this is some text really long text that should wrap";
+    [label layoutRightOf:image];
+    [mainLayout addSubview:label];
+    
+    UIImageView *image2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stream-button"]];
+    [image2 alignParentRight:YES];
+    //image2.visibilty = kAL2VisibilityGone;
+    [mainLayout addSubview:image2];
+    
+    [label layoutLeftOf:image2];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(containerTap:)];
+    [mainLayout addGestureRecognizer:tap];
 }
 
 - (void)testRelativeLayout2
@@ -97,14 +123,14 @@
     [findMeButton setBackgroundImage:[UIImage imageNamed:@"find_me_default"] forState:UIControlStateNormal];
     [gpsView addSubview:findMeButton];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(containerTap:)];
-    [mainLayout addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(containerTap:)];
+//    [mainLayout addGestureRecognizer:tap];
 }
 
 - (void)testLinearLayout
 {
     
-    AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, MATCH_PARENT)];
+    AL2LinearLayoutView *linearLayout = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
     linearLayout.backgroundColor = [UIColor greenColor];
     linearLayout.orientation = kAL2LinearLayoutVertical;
     linearLayout.padding = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -118,7 +144,7 @@
     [linearLayout addSubview:label];
     
     
-    //image.visibilty = kAL2VisibilityInvisible;
+    //label.visibilty = kAL2VisibilityGone;
     
     AL2LinearLayoutView *linearLayout2 = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
     linearLayout2.backgroundColor = [UIColor greenColor];
@@ -127,6 +153,7 @@
     linearLayout2.layoutParams.alignSubviews = kAL2AlignmentCenterHorizontal;
     linearLayout2.backgroundColor = [UIColor yellowColor];
     [linearLayout addSubview:linearLayout2];
+    linearLayout2.visibilty = kAL2VisibilityGone;
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
@@ -261,7 +288,7 @@
 - (void)containerTap:(UIGestureRecognizer *)tap
 {
     AL2RelativeLayoutView *view = (AL2RelativeLayoutView *)tap.view;
-    view.sizeSpec = CGSizeMake(MATCH_PARENT, 300);
+    view.sizeSpec = CGSizeMake(view.size.width - 10, WRAP_CONTENT);
 }
 
 @end

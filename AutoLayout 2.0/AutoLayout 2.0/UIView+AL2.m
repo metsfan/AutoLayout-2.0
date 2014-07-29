@@ -62,6 +62,10 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
         
         NSArray *subviews = self.subviews;
         for (UIView *view in subviews) {
+            if (view.hidden) {
+                continue;
+            }
+            
             CGSize viewMeasureSize = measureSize;
             UIEdgeInsets viewMargin = view.margin;
             UIEdgeInsets viewPadding = view.padding;

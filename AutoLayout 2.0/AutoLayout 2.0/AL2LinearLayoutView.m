@@ -23,6 +23,10 @@
     CGPoint offset = CGPointMake(padding.left, padding.top);
     if (_orientation == kAL2LinearLayoutHorizontal) {
         for (UIView *view in self.subviews) {
+            if (view.hidden) {
+                continue;
+            }
+            
             UIEdgeInsets viewMargin = view.margin;
             UIEdgeInsets viewPadding = view.padding;
             AL2Alignment align = view.layoutParams.align;
@@ -42,7 +46,7 @@
                 //frame.size.width = self.frame.size.width - margin.right - viewMargin.right - offset.x - 100;
                 int maxWidth = self.frame.size.width - offset.x - margin.right - viewMargin.right - margin.left - padding.left - padding.right;
                 CGSize measureSize = CGSizeMake(maxWidth, 20);
-                [view measure:measureSize];
+                //[view measure:measureSize];
             }
             
             offset.x += frame.origin.x + frame.size.width;
@@ -52,6 +56,10 @@
     } else {
         
         for (UIView *view in self.subviews) {
+            if (view.hidden) {
+                continue;
+            }
+            
             UIEdgeInsets viewMargin = view.margin;
             UIEdgeInsets viewPadding = view.padding;
             CGPoint viewOffset = offset;
@@ -79,6 +87,10 @@
 - (void)postLayout
 {
     [super postLayout];
+    
+    if (self.hidden) {
+        return;
+    }
     
     AL2Alignment defaultAlign = self.layoutParams.alignSubviews;
     

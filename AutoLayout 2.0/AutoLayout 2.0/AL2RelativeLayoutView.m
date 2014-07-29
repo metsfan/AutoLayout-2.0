@@ -33,68 +33,97 @@
         UIEdgeInsets viewMargin = subview.margin;
         UIEdgeInsets viewPadding = subview.padding;
         AL2LayoutParams *layoutParams = subview.layoutParams;
+        UIEdgeInsets measureBounds = UIEdgeInsetsMake(frame.origin.y, frame.origin.x, frame.origin.y + frame.size.height, frame.origin.x + frame.size.width);
         
         frame.size.width += viewPadding.left + viewPadding.right;
         frame.size.height += viewPadding.top + viewPadding.bottom;
         
         if (layoutParams.alignParentRight && self.sizeSpec.width != WRAP_CONTENT) {
-            frame.origin.x = self.size.width - self.padding.right - frame.size.width - viewMargin.right;
+            measureBounds.right = self.size.width - padding.right - viewMargin.right;
+            measureBounds.left = measureBounds.right - frame.size.width;
         } else if(layoutParams.align & kAL2AlignmentCenterHorizontal) {
-            frame.origin.x = (self.size.width - frame.size.width) * 0.5;
-        } else {
-            frame.origin.x = padding.left;
+            measureBounds.left = (self.size.width - frame.size.width) * 0.5;
+            measureBounds.right = measureBounds.left + frame.size.width;
         }
         
         if (layoutParams.leftOfView) {
-            CGRect leftOfFrame = layoutParams.leftOfView.frame;
-            UIEdgeInsets otherMargin = layoutParams.leftOfView.margin;
-            if (layoutParams.leftOfView.visibilty == kAL2VisibilityGone) {
-                otherMargin = UIEdgeInsetsZero;
+            measureBounds.right = layoutParams.leftOfView.layoutParams.measureBounds.left;
+            
+            if (!layoutParams.rightOfView && !layoutParams.alignParentRight) {
+                measureBounds.left = measureBounds.right - frame.size.width;
             }
-            frame.origin.x = leftOfFrame.origin.x - frame.size.width - otherMargin.right;
-        } else if (layoutParams.rightOfView) {
-            CGRect rightOfFrame = layoutParams.rightOfView.frame;
-            UIEdgeInsets otherMargin = layoutParams.rightOfView.margin;
-            if (layoutParams.rightOfView.visibilty == kAL2VisibilityGone) {
-                otherMargin = UIEdgeInsetsZero;
-            }
-            frame.origin.x = rightOfFrame.origin.x + rightOfFrame.size.width + otherMargin.left;
         }
+        
+        if (layoutParams.rightOfView) {
+            measureBounds.left = layoutParams.rightOfView.layoutParams.measureBounds.right;
+            
+            if (!layoutParams.rightOfView && !layoutParams.alignParentRight) {
+                measureBounds.right = measureBounds.left + frame.size.width;
+            }
+        }
+        
+        int offset = viewMargin.left + padding.left;
+        measureBounds.left += offset;
+        measureBounds.right += offset;
     
         if (layoutParams.alignParentBottom && self.sizeSpec.height != WRAP_CONTENT) {
-            frame.origin.y = self.size.height - self.padding.bottom - frame.size.height - viewMargin.bottom;
+            measureBounds.bottom = self.size.height - padding.bottom - viewMargin.bottom;
+            measureBounds.top = measureBounds.bottom - frame.size.height;
         } else if(layoutParams.align & kAL2AlignmentCenterVertical) {
-            frame.origin.y = (self.size.height - frame.size.height) * 0.5;
-        } else {
-            frame.origin.y = padding.top;
+            measureBounds.top = (self.size.height - frame.size.height) * 0.5;
+            measureBounds.bottom = measureBounds.top + frame.size.height;
         }
         
         if (layoutParams.aboveView) {
-            CGRect aboveFrame = layoutParams.aboveView.frame;
-            UIEdgeInsets otherMargin = layoutParams.aboveView.margin;
-            if (layoutParams.aboveView.visibilty == kAL2VisibilityGone) {
-                otherMargin = UIEdgeInsetsZero;
+            measureBounds.bottom = layoutParams.aboveView.layoutParams.measureBounds.top;
+            
+            if (!layoutParams.belowView && !layoutParams.alignParentBottom) {
+                measureBounds.top = measureBounds.bottom - frame.size.height;
             }
-            frame.origin.y = aboveFrame.origin.y - frame.size.height - otherMargin.top;
-        } else if (layoutParams.belowView) {
-            CGRect belowFrame = layoutParams.belowView.frame;
-            UIEdgeInsets otherMargin = layoutParams.belowView.margin;
-            if (layoutParams.belowView.visibilty == kAL2VisibilityGone) {
-                otherMargin = UIEdgeInsetsZero;
-            }
-            frame.origin.y = belowFrame.origin.y + belowFrame.size.height + otherMargin.bottom;
         }
         
-        frame.origin.x += viewMargin.left;
-        frame.origin.y += viewMargin.top;
+        if (layoutParams.belowView) {
+            measureBounds.top = layoutParams.belowView.layoutParams.measureBounds.bottom;
+
+            if (!layoutParams.aboveView && !layoutParams.alignParentTop) {
+                measureBounds.bottom = measureBounds.top + frame.size.height;
+            }
+        }
+        
+        offset = viewMargin.top + padding.top;
+        measureBounds.top += offset;
+        measureBounds.bottom += offset;
+        
+        //frame.origin.y += viewMargin.top;
         
         if (subview.sizeSpec.width == MATCH_PARENT)
-            frame.size.width = self.frame.size.width - padding.right - frame.origin.x - viewMargin.right;
+            measureBounds.right = self.frame.size.width - padding.right;
+            //frame.size.width = self.frame.size.width - padding.right - frame.origin.x - viewMargin.right;
+            
         if (subview.sizeSpec.height == MATCH_PARENT)
-            frame.size.height = self.frame.size.height - padding.top - frame.origin.y - viewMargin.bottom;
+            measureBounds.bottom = self.frame.size.height - padding.bottom;
+            //frame.size.height = self.frame.size.height - padding.top - frame.origin.y - viewMargin.bottom;
 
+        //measureBounds.right -= viewMargin.right;
         
+        CGSize oldSize = frame.size;
+        
+        frame.origin.x = measureBounds.left;
+        frame.origin.y = measureBounds.top;
+        frame.size.width = measureBounds.right - measureBounds.left;
+        frame.size.height = measureBounds.bottom - measureBounds.top;
+
         subview.frame = frame;
+        
+        if (!CGSizeEqualToSize(oldSize, frame.size)) {
+            // If our size has changed, re-measure constrained to new size
+            [subview measure:frame.size];
+        }
+        
+        
+        subview.layoutParams.measureBounds = measureBounds;
+        
+        
     }
 }
 

@@ -12,6 +12,11 @@
       </ContextState>
       <ContextState
          contextName = "-[AL2RelativeLayoutView positionSubviews]:AL2RelativeLayoutView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "subview">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

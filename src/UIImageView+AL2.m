@@ -7,6 +7,7 @@
 //
 
 #import "UIImageView+AL2.h"
+#import "AutoLayout2.h"
 
 @implementation UIImageView (AL2)
 

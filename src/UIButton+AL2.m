@@ -7,6 +7,7 @@
 //
 
 #import "UIButton+AL2.h"
+#import "AutoLayout2.h"
 
 @implementation UIButton (AL2)
 

@@ -7,6 +7,7 @@
 //
 
 #import "UILabel+AL2.h"
+#import "AutoLayout2.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 

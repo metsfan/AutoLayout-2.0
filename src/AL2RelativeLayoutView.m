@@ -7,6 +7,7 @@
 //
 
 #import "AL2RelativeLayoutView.h"
+#import "AutoLayout2.h"
 
 @interface AL2RelativeLayoutView()
 

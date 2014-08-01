@@ -7,6 +7,7 @@
 //
 
 #import "AL2SampleTableViewCell.h"
+#import "AutoLayout2.h"
 
 @interface AL2SampleTableViewCell()
 

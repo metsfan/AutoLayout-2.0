@@ -7,6 +7,7 @@
 //
 
 #import "AL2LinearLayoutView.h"
+#import "AutoLayout2.h"
 
 @implementation AL2LinearLayoutView
 

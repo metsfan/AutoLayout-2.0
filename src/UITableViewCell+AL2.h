@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AutoLayout2.h"
 
 @interface UITableViewCell (AL2)
 

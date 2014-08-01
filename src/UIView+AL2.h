@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AutoLayout2.h"
 
 static const int MATCH_PARENT = 0xFF00;
 static const int WRAP_CONTENT = 0xFF01;

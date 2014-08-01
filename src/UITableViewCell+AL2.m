@@ -7,6 +7,7 @@
 //
 
 #import "UITableViewCell+AL2.h"
+#import "AutoLayout2.h"
 #import <objc/runtime.h>
 
 @implementation UITableViewCell (AL2)

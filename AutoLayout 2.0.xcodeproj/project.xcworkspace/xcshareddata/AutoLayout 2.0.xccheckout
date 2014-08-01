@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8BC154E0-2924-460F-9955-487D070B35B4</string>
+	<string>A9F661C3-AF08-4267-97B0-11CA94701416</string>
 	<key>IDESourceControlProjectName</key>
 	<string>AutoLayout 2.0</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D379FA3F-E4EE-4CF7-9798-1285685C01B5</key>
-		<string>https://github.com/metsfan/AutoLayout-2.0.git</string>
+		<key>77512DB0-CFD5-487D-9BA5-E1434C8898E1</key>
+		<string>ssh://github.com/metsfan/AutoLayout-2.0</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AutoLayout 2.0/AutoLayout 2.0.xcodeproj/project.xcworkspace</string>
+	<string>DemoApp/AutoLayout 2.0.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D379FA3F-E4EE-4CF7-9798-1285685C01B5</key>
+		<key>77512DB0-CFD5-487D-9BA5-E1434C8898E1</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/metsfan/AutoLayout-2.0.git</string>
+	<string>ssh://github.com/metsfan/AutoLayout-2.0</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D379FA3F-E4EE-4CF7-9798-1285685C01B5</string>
+	<string>77512DB0-CFD5-487D-9BA5-E1434C8898E1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D379FA3F-E4EE-4CF7-9798-1285685C01B5</string>
+			<string>77512DB0-CFD5-487D-9BA5-E1434C8898E1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AutoLayout-2.0</string>
 		</dict>

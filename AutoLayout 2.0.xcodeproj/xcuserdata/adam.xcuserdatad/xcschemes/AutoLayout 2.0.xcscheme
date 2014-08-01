@@ -38,6 +38,16 @@
                ReferencedContainer = "container:AutoLayout 2.0.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "66ADBBFE1989372600710863"
+               BuildableName = "autolayout2Tests.xctest"
+               BlueprintName = "autolayout2Tests"
+               ReferencedContainer = "container:AutoLayout 2.0.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

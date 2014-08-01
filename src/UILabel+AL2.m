@@ -44,13 +44,14 @@ static BOOL loaded = NO;
     CGRect textSize = [self.text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.font} context:nil];
     
     if (spec.width == WRAP_CONTENT) {
-        size.width = MIN(textSize.size.width, parentSize.width);
+        size.width = floor(MIN(textSize.size.width, parentSize.width));
     }
     
     if (spec.height == WRAP_CONTENT) {
-        size.height = textSize.size.height;
+        size.height = floor(textSize.size.height);
     }
     
+    //[self sizeToFit];
     self.size = size;
 }
 

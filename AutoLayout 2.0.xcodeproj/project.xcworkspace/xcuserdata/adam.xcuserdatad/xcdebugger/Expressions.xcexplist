@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[UILabel(AL2) measure:]:UILabel+AL2.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[AL2RelativeLayoutView positionSubviews]:AL2RelativeLayoutView.m">
          <PersistentStrings>
             <PersistentString

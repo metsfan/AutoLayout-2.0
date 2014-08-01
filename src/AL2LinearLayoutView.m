@@ -22,65 +22,36 @@
     AL2Alignment defaultAlign = self.layoutParams.alignSubviews;
     
     CGPoint offset = CGPointMake(padding.left, padding.top);
-    if (_orientation == kAL2LinearLayoutHorizontal) {
-        for (UIView *view in self.subviews) {
-            if (view.hidden) {
-                continue;
-            }
-            
-            UIEdgeInsets viewMargin = view.margin;
-            UIEdgeInsets viewPadding = view.padding;
-            AL2Alignment align = view.layoutParams.align;
-            if (align == kAL2AlignmentInherit) {
-                align = defaultAlign;
-            }
-            
-            CGRect frame = view.frame;
-            frame.origin = offset;
-            frame.origin.x += viewMargin.left;
-            frame.origin.y += viewMargin.top;
-            frame.size.width += viewPadding.left + viewPadding.right;
-            frame.size.height += viewPadding.top + viewPadding.bottom;
-            view.frame = frame;
-            
-            if (self.sizeSpec.width != WRAP_CONTENT && (self.frame.size.width - (frame.size.width + offset.x)) < 0) {
-                //frame.size.width = self.frame.size.width - margin.right - viewMargin.right - offset.x - 100;
-                int maxWidth = self.frame.size.width - offset.x - margin.right - viewMargin.right - margin.left - padding.left - padding.right;
-                CGSize measureSize = CGSizeMake(maxWidth, 20);
-                //[view measure:measureSize];
-            }
-            
-            offset.x += frame.origin.x + frame.size.width;
-            
-            
+    
+    for (UIView *view in self.subviews) {
+        if (view.hidden) {
+            continue;
         }
-    } else {
         
-        for (UIView *view in self.subviews) {
-            if (view.hidden) {
-                continue;
-            }
-            
-            UIEdgeInsets viewMargin = view.margin;
-            UIEdgeInsets viewPadding = view.padding;
-            CGPoint viewOffset = offset;
-            
-            AL2Alignment align = view.layoutParams.align;
-            if (align == kAL2AlignmentInherit) {
-                align = defaultAlign;
-            }
-            
-            CGRect frame = view.frame;
-            frame.origin = viewOffset;
-            frame.origin.x += viewMargin.left;
-            frame.origin.y += viewMargin.top;
-            frame.size.width += viewPadding.left + viewPadding.right;
-            frame.size.height += viewPadding.top + viewPadding.bottom;
-            
-            view.frame = frame;
-            
-            
-            offset.y = frame.origin.y + frame.size.height;
+        UIEdgeInsets viewMargin = view.margin;
+        UIEdgeInsets viewPadding = view.padding;
+        CGPoint viewOffset = offset;
+
+        AL2Alignment align = view.layoutParams.align;
+        if (align == kAL2AlignmentInherit) {
+            align = defaultAlign;
+        }
+        
+        CGRect frame = view.frame;
+        UIEdgeInsets measureBounds = UIEdgeInsetsMake(frame.origin.y, frame.origin.x, frame.origin.y + frame.size.height, frame.origin.x + frame.size.width);
+
+        measureBounds.left = viewOffset.x + viewMargin.left;
+        measureBounds.right = measureBounds.left + frame.size.width + viewPadding.right + viewPadding.left;
+        measureBounds.top = viewOffset.y + viewMargin.top;
+        measureBounds.bottom = measureBounds.top + frame.size.height + viewPadding.top + viewPadding.bottom;
+        
+        view.frame = CGRectMake(measureBounds.left, measureBounds.top, measureBounds.right - measureBounds.left, measureBounds.bottom - measureBounds.top);
+        view.layoutParams.measureBounds = measureBounds;
+        
+        if (_orientation == kAL2LinearLayoutHorizontal) {
+            offset.x = measureBounds.right + viewMargin.right;
+        } else {
+            offset.y = measureBounds.bottom + viewMargin.bottom;
         }
     }
 }

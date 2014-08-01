@@ -25,6 +25,8 @@
     if (spec.height == WRAP_CONTENT) {
         size.height = self.image.size.height;
     }
+    
+    self.size = size;
 }
 
 @end

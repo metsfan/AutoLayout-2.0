@@ -19,10 +19,80 @@
     [super viewDidLoad];
 	self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    [self testLinearLayout];
+    //[self testLinearLayout];
     //[self testLinearLayoutAlignment];
     //[self testRelativeLayout];
-    //[self testRelativeLayout2];
+    //[self testRelativeLayout3];
+    [self testRelativeLayout4];
+}
+
+- (void)testRelativeLayout4
+{
+    AL2RelativeLayoutView *mainLayout = [[AL2RelativeLayoutView alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    mainLayout.padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    [self.view addSubview:mainLayout];
+    
+    UIImageView *image = [[UIImageView alloc] initWithSize:CGSizeMake(45, 45)];
+    image.backgroundColor = [UIColor redColor];
+    [image alignParentTop:YES];
+    [image alignParentLeft:YES];
+    [image setRightMargin:10];
+    [mainLayout addSubview:image];
+    
+    UILabel *dist = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    dist.text = @"0.23 mi";
+    dist.font = [UIFont systemFontOfSize:11];
+    [dist alignParentLeft:YES];
+    [dist layoutBelow:image];
+    [dist setLeftMargin:3];
+    [mainLayout addSubview:dist];
+    
+    UILabel *title = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    title.text = @"The Bread Factory Cafe";
+    title.font = [UIFont systemFontOfSize:13];
+    [title alignParentTop:YES];
+    [title layoutRightOf:image];
+    [mainLayout addSubview:title];
+    
+    UILabel *category = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    category.text = @"Cafe";
+    category.font = [UIFont systemFontOfSize:11];
+    [category layoutRightOf:image];
+    [category layoutBelow:title];
+    [mainLayout addSubview:category];
+    
+    UILabel *address = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    address.text = @"785 Lexington Ave";
+    address.font = [UIFont systemFontOfSize:11];
+    [address layoutRightOf:image];
+    [address layoutBelow:category];
+    [mainLayout addSubview:address];
+    
+    UIImageView *info = [[UIImageView alloc] initWithSize:CGSizeMake(20, 20)];
+    info.backgroundColor = [UIColor blueColor];
+    [info alignParentRight:YES];
+    info.align = kAL2AlignmentCenterVertical;
+    [mainLayout addSubview:info];
+    
+    AL2LinearLayoutView *socialContent = [[AL2LinearLayoutView alloc] initWithSize:CGSizeMake(WRAP_CONTENT, WRAP_CONTENT)];
+    socialContent.orientation = kAL2LinearLayoutHorizontal;
+    [socialContent layoutRightOf:image];
+    [socialContent layoutBelow:address];
+    [socialContent layoutLeftOf:info];
+    [socialContent setTopMargin:10];
+    [mainLayout addSubview:socialContent];
+    
+    UIImageView *avatar = [[UIImageView alloc] initWithSize:CGSizeMake(25, 25)];
+    avatar.backgroundColor = [UIColor greenColor];
+    [avatar setRightMargin:10];
+    [socialContent addSubview:avatar];
+    
+    UILabel *content = [[UILabel alloc] initWithSize:CGSizeMake(MATCH_PARENT, WRAP_CONTENT)];
+    content.text = @"adam.eskreis lots of variety.  Pastas and stir fry are especially tasty and generous.  Come by any time, they'e open really late too.";
+    content.font = [UIFont systemFontOfSize:11];
+    [socialContent addSubview:content];
+    
+    
 }
 
 - (void)testRelativeLayout3
@@ -153,7 +223,7 @@
     linearLayout2.layoutParams.alignSubviews = kAL2AlignmentCenterHorizontal;
     linearLayout2.backgroundColor = [UIColor yellowColor];
     [linearLayout addSubview:linearLayout2];
-    linearLayout2.visibilty = kAL2VisibilityGone;
+    //linearLayout2.visibilty = kAL2VisibilityGone;
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.sizeSpec = CGSizeMake(WRAP_CONTENT, WRAP_CONTENT);
@@ -173,6 +243,13 @@
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin_no_logo"]];
     [linearLayout addSubview:image];
+    
+    // Only transform animations will work
+    //linearLayout2.transform = CGAffineTransformMakeScale(0, 0);
+    [UIView animateWithDuration:1.0 animations:^{
+        //button.transform = CGAffineTransformMakeTranslation(100, 50);
+        //linearLayout2.transform = CGAffineTransformMakeScale(1, 1);
+    }];
 }
 
 - (void)testLinearLayoutAlignment

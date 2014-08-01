@@ -18,20 +18,20 @@
     //[self.titleLabel measure:self.size];
     
     CGSize spec = self.sizeSpec;
-    CGRect frame = self.frame;
+    CGSize size = self.size;
     
     if (spec.width == WRAP_CONTENT) {
-        frame.size.width = MAX(self.titleLabel.frame.size.width, [self backgroundImageForState:UIControlStateNormal].size.width);
+        size.width = MAX(self.titleLabel.frame.size.width, [self backgroundImageForState:UIControlStateNormal].size.width);
     }
     
     if (spec.height == WRAP_CONTENT) {
-        frame.size.height = MAX(self.titleLabel.frame.size.width, [self backgroundImageForState:UIControlStateNormal].size.height);
+        size.height = MAX(self.titleLabel.frame.size.height, [self backgroundImageForState:UIControlStateNormal].size.height);
     }
     
     UIEdgeInsets padding = self.padding;
     self.titleEdgeInsets = padding;
     
-    self.frame = frame;
+    self.size = size;
 }
 
 @end

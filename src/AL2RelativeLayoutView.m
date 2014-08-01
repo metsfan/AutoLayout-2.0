@@ -29,6 +29,7 @@
     
     UIEdgeInsets padding = self.padding;
     
+    BOOL first = YES;
     for (UIView *subview in _sortedSubviews) {
         CGRect frame = subview.frame;
         UIEdgeInsets viewMargin = subview.margin;
@@ -42,7 +43,7 @@
         if (layoutParams.alignParentRight && self.sizeSpec.width != WRAP_CONTENT) {
             measureBounds.right = self.size.width - padding.right - viewMargin.right;
             measureBounds.left = measureBounds.right - frame.size.width;
-        } else if(layoutParams.align & kAL2AlignmentCenterHorizontal) {
+        } else if(layoutParams.align & kAL2AlignmentCenterHorizontal && self.sizeSpec.width != WRAP_CONTENT) {
             measureBounds.left = (self.size.width - frame.size.width) * 0.5;
             measureBounds.right = measureBounds.left + frame.size.width;
         }
@@ -56,21 +57,24 @@
         }
         
         if (layoutParams.rightOfView) {
-            measureBounds.left = layoutParams.rightOfView.layoutParams.measureBounds.right;
+            measureBounds.left = layoutParams.rightOfView.layoutParams.measureBounds.right + layoutParams.rightOfView.margin.right;
             
             if (!layoutParams.rightOfView && !layoutParams.alignParentRight) {
                 measureBounds.right = measureBounds.left + frame.size.width;
             }
         }
         
-        int offset = viewMargin.left + padding.left;
+        int offset = viewMargin.left;
+        if (!layoutParams.rightOfView && !layoutParams.alignParentRight && !(layoutParams.align & kAL2AlignmentCenterHorizontal)) {
+            offset += padding.left;
+        }
         measureBounds.left += offset;
         measureBounds.right += offset;
     
         if (layoutParams.alignParentBottom && self.sizeSpec.height != WRAP_CONTENT) {
             measureBounds.bottom = self.size.height - padding.bottom - viewMargin.bottom;
             measureBounds.top = measureBounds.bottom - frame.size.height;
-        } else if(layoutParams.align & kAL2AlignmentCenterVertical) {
+        } else if(layoutParams.align & kAL2AlignmentCenterVertical && self.sizeSpec.height != WRAP_CONTENT) {
             measureBounds.top = (self.size.height - frame.size.height) * 0.5;
             measureBounds.bottom = measureBounds.top + frame.size.height;
         }
@@ -91,7 +95,10 @@
             }
         }
         
-        offset = viewMargin.top + padding.top;
+        offset = viewMargin.top;
+        if (!layoutParams.belowView && !layoutParams.alignParentBottom && !(layoutParams.align & kAL2AlignmentCenterVertical)) {
+            offset += padding.top;
+        }
         measureBounds.top += offset;
         measureBounds.bottom += offset;
         
@@ -111,8 +118,8 @@
         
         frame.origin.x = measureBounds.left;
         frame.origin.y = measureBounds.top;
-        frame.size.width = measureBounds.right - measureBounds.left;
-        frame.size.height = measureBounds.bottom - measureBounds.top;
+        frame.size.width = floor(measureBounds.right - measureBounds.left);
+        frame.size.height = floor(measureBounds.bottom - measureBounds.top);
 
         subview.frame = frame;
         

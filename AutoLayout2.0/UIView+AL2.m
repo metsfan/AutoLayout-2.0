@@ -9,8 +9,6 @@
 #import "UIView+AL2.h"
 #import <objc/runtime.h>
 
-
-
 @implementation UIView (AL2)
 
 static const char *marginKey = "autolayout2.key.margin";
@@ -60,6 +58,8 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
         
         // Measure subviews
         
+        self.hidden = self.visibilty == kAL2VisibilityInvisible;
+        
         NSArray *subviews = self.subviews;
         for (UIView *view in subviews) {
             if (view.hidden) {
@@ -75,7 +75,7 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
         }
         
         self.size = size;
-        self.hidden = self.visibilty == kAL2VisibilityInvisible;
+        
     }
 }
 
@@ -326,8 +326,20 @@ static const char *layoutParamsKey = "autolayout2.key.layoutParams";
 
 - (CGSize)measureSize
 {
-    return CGSizeMake(self.size.width - self.margin.left - self.margin.right - self.padding.left - self.padding.right,
-                      self.size.height - self.margin.top - self.margin.bottom - self.padding.top - self.padding.bottom);
+    if (!CGSizeEqualToSize(CGSizeZero, self.layoutParams.measureSize)) {
+        CGSize measureSize = self.layoutParams.measureSize;
+        measureSize.width = measureSize.width - self.padding.left - self.padding.right;
+        
+        return measureSize;
+    }
+    
+    if (self.superview != nil) {
+        UIView *superview = self.superview;
+        return CGSizeMake(superview.size.width - superview.margin.left - superview.margin.right - superview.padding.left - superview.padding.right,
+                          superview.size.height - superview.margin.top - superview.margin.bottom - superview.padding.top - superview.padding.bottom);
+    }
+    
+    return self.sizeSpec;
 }
 
 - (void)setAlign:(AL2Alignment)align

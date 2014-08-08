@@ -34,25 +34,25 @@ static BOOL loaded = NO;
 {
     [super measure:parentSize];
     
-    CGSize spec = self.sizeSpec;
-    CGSize size = self.size;
+//    CGSize spec = self.sizeSpec;
+//    CGSize size = self.size;
+//    
+//    UIEdgeInsets padding = self.padding;
+//    
+//    int textWidth = (spec.width == WRAP_CONTENT) ? parentSize.width : size.width;
+//    textWidth = textWidth - padding.left - padding.right;
+//    CGRect textSize = [self.text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.font} context:nil];
+//    
+//    if (spec.width == WRAP_CONTENT) {
+//        size.width = floor(MIN(textSize.size.width, parentSize.width));
+//    }
+//    
+//    if (spec.height == WRAP_CONTENT) {
+//        size.height = floor(textSize.size.height);
+//    }
     
-    UIEdgeInsets padding = self.padding;
-    
-    int textWidth = (spec.width == WRAP_CONTENT) ? parentSize.width : size.width;
-    textWidth = textWidth - padding.left - padding.right;
-    CGRect textSize = [self.text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.font} context:nil];
-    
-    if (spec.width == WRAP_CONTENT) {
-        size.width = floor(MIN(textSize.size.width, parentSize.width));
-    }
-    
-    if (spec.height == WRAP_CONTENT) {
-        size.height = floor(textSize.size.height);
-    }
-    
-    //[self sizeToFit];
-    self.size = size;
+    [self sizeToFit];
+    //self.size = size;
 }
 
 - (void)originalDrawTextInRect:(CGRect)rect
@@ -70,13 +70,13 @@ static BOOL loaded = NO;
 - (void)newSetText:(NSString *)text
 {
     [self newSetText:text];
-    [self parentNeedsLayout];
+    //[self parentNeedsLayout];
 }
 
 - (void)newSetFont:(UIFont *)font
 {
     [self newSetFont:font];
-    [self parentNeedsLayout];
+    //[self parentNeedsLayout];
 }
 
 + (void)swizzle

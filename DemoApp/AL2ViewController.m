@@ -80,6 +80,8 @@
     [socialContent layoutBelow:address];
     [socialContent layoutLeftOf:info];
     [socialContent setTopMargin:10];
+    [socialContent setRightMargin:10];
+    socialContent.backgroundColor = [UIColor cyanColor];
     [mainLayout addSubview:socialContent];
     
     UIImageView *avatar = [[UIImageView alloc] initWithSize:CGSizeMake(25, 25)];
@@ -249,7 +251,10 @@
     [UIView animateWithDuration:1.0 animations:^{
         //button.transform = CGAffineTransformMakeTranslation(100, 50);
         //linearLayout2.transform = CGAffineTransformMakeScale(1, 1);
+        button.transform = CGAffineTransformMakeRotation(M_PI / 2);
     }];
+    
+    //button.layer.transform = CATransform3DMakeRotation(45, 0, 0, 1);
 }
 
 - (void)testLinearLayoutAlignment

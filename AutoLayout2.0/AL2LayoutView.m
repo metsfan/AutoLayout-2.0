@@ -11,11 +11,20 @@
 
 @implementation AL2LayoutView
 
+- (id)initWithSize:(CGSize)size
+{
+    self = [super initWithSize:size];
+    if (self) {
+        //self.userInteractionEnabled = NO;
+    }
+    return self;
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    [self measure:[self.superview measureSize]];
+    [self measure:[self measureSize]];
 }
 
 - (void)layoutSubviewsInternal

@@ -45,7 +45,18 @@
         measureBounds.top = viewOffset.y + viewMargin.top;
         measureBounds.bottom = measureBounds.top + frame.size.height + viewPadding.top + viewPadding.bottom;
         
-        view.frame = CGRectMake(measureBounds.left, measureBounds.top, measureBounds.right - measureBounds.left, measureBounds.bottom - measureBounds.top);
+        if (measureBounds.right + measureBounds.left > self.frame.size.width) {
+            measureBounds.right = self.frame.size.width;
+        }
+        
+        CGSize oldSize = frame.size;
+        CGSize newSize = CGSizeMake(measureBounds.right - measureBounds.left, measureBounds.bottom - measureBounds.top);
+        if (!CGSizeEqualToSize(oldSize, newSize)) {
+            //view.layoutParams.measureSize = newSize;
+        }
+        
+        view.frame = CGRectMake(measureBounds.left, measureBounds.top, newSize.width, newSize.height);
+
         view.layoutParams.measureBounds = measureBounds;
         
         if (_orientation == kAL2LinearLayoutHorizontal) {

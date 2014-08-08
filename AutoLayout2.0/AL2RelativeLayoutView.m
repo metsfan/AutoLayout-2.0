@@ -125,7 +125,8 @@
         
         if (!CGSizeEqualToSize(oldSize, frame.size)) {
             // If our size has changed, re-measure constrained to new size
-            [subview measure:frame.size];
+            //[subview measure:frame.size];
+            subview.layoutParams.measureSize = frame.size;
         }
         
         

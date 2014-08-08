@@ -7,40 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6619FA30199011020042D4BD /* AL2LayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA18199011020042D4BD /* AL2LayoutParams.m */; };
+		6619FA31199011020042D4BD /* AL2LayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA1A199011020042D4BD /* AL2LayoutView.m */; };
+		6619FA32199011020042D4BD /* AL2LinearLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA1C199011020042D4BD /* AL2LinearLayoutView.m */; };
+		6619FA33199011020042D4BD /* AL2RelativeLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA1E199011020042D4BD /* AL2RelativeLayoutView.m */; };
+		6619FA34199011020042D4BD /* AL2SampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA20199011020042D4BD /* AL2SampleTableViewCell.m */; };
+		6619FA35199011020042D4BD /* AL2SpaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA22199011020042D4BD /* AL2SpaceView.m */; };
+		6619FA36199011020042D4BD /* AL2Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA24199011020042D4BD /* AL2Utils.m */; };
+		6619FA37199011020042D4BD /* UIButton+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA27199011020042D4BD /* UIButton+AL2.m */; };
+		6619FA38199011020042D4BD /* UIImageView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA29199011020042D4BD /* UIImageView+AL2.m */; };
+		6619FA39199011020042D4BD /* UILabel+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA2B199011020042D4BD /* UILabel+AL2.m */; };
+		6619FA3A199011020042D4BD /* UITableViewCell+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA2D199011020042D4BD /* UITableViewCell+AL2.m */; };
+		6619FA3B199011020042D4BD /* UIView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA2F199011020042D4BD /* UIView+AL2.m */; };
+		6619FA3E1990111B0042D4BD /* UISearchBar+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619FA3D1990111B0042D4BD /* UISearchBar+AL2.m */; };
 		66ADBBB0198847E200710863 /* AL2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBAB198847E200710863 /* AL2AppDelegate.m */; };
 		66ADBBB1198847E200710863 /* AL2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBAD198847E200710863 /* AL2TableViewController.m */; };
 		66ADBBB2198847E200710863 /* AL2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBAF198847E200710863 /* AL2ViewController.m */; };
 		66ADBBBA198847F700710863 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66ADBBB9198847F700710863 /* Images.xcassets */; };
 		66ADBBBF19884AE000710863 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBBD19884AE000710863 /* main.m */; };
 		66ADBBC219884BF000710863 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66ADBBC019884BF000710863 /* InfoPlist.strings */; };
-		66ADBBDD19884C7F00710863 /* AL2LayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBC519884C7F00710863 /* AL2LayoutParams.m */; };
-		66ADBBDE19884C7F00710863 /* AL2LayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBC719884C7F00710863 /* AL2LayoutView.m */; };
-		66ADBBDF19884C7F00710863 /* AL2LinearLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBC919884C7F00710863 /* AL2LinearLayoutView.m */; };
-		66ADBBE019884C7F00710863 /* AL2RelativeLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBCB19884C7F00710863 /* AL2RelativeLayoutView.m */; };
-		66ADBBE119884C7F00710863 /* AL2SampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBCD19884C7F00710863 /* AL2SampleTableViewCell.m */; };
-		66ADBBE219884C7F00710863 /* AL2SpaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBCF19884C7F00710863 /* AL2SpaceView.m */; };
-		66ADBBE319884C7F00710863 /* AL2Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBD119884C7F00710863 /* AL2Utils.m */; };
-		66ADBBE419884C7F00710863 /* UIButton+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBD419884C7F00710863 /* UIButton+AL2.m */; };
-		66ADBBE519884C7F00710863 /* UIImageView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBD619884C7F00710863 /* UIImageView+AL2.m */; };
-		66ADBBE619884C7F00710863 /* UILabel+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBD819884C7F00710863 /* UILabel+AL2.m */; };
-		66ADBBE719884C7F00710863 /* UITableViewCell+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBDA19884C7F00710863 /* UITableViewCell+AL2.m */; };
-		66ADBBE819884C7F00710863 /* UIView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBDC19884C7F00710863 /* UIView+AL2.m */; };
 		66ADBBEB198936A000710863 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66ADBBB3198847EE00710863 /* Main_iPad.storyboard */; };
 		66ADBBEC198936A300710863 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66ADBBB5198847EE00710863 /* Main_iPhone.storyboard */; };
 		66ADBBED198936DA00710863 /* AutoLayout 2.0-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66ADBBBB19884AE000710863 /* AutoLayout 2.0-Info.plist */; };
 		66ADBBF31989372600710863 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD68AD19801AD5009A3AF9 /* Foundation.framework */; };
-		66ADBC151989375500710863 /* AL2LayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBC519884C7F00710863 /* AL2LayoutParams.m */; };
-		66ADBC171989375500710863 /* AL2LayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBC719884C7F00710863 /* AL2LayoutView.m */; };
-		66ADBC191989375500710863 /* AL2LinearLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBC919884C7F00710863 /* AL2LinearLayoutView.m */; };
-		66ADBC1B1989375500710863 /* AL2RelativeLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBCB19884C7F00710863 /* AL2RelativeLayoutView.m */; };
-		66ADBC1D1989375500710863 /* AL2SampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBCD19884C7F00710863 /* AL2SampleTableViewCell.m */; };
-		66ADBC1F1989375500710863 /* AL2SpaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBCF19884C7F00710863 /* AL2SpaceView.m */; };
-		66ADBC211989375500710863 /* AL2Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBD119884C7F00710863 /* AL2Utils.m */; };
-		66ADBC241989375500710863 /* UIButton+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBD419884C7F00710863 /* UIButton+AL2.m */; };
-		66ADBC261989375500710863 /* UIImageView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBD619884C7F00710863 /* UIImageView+AL2.m */; };
-		66ADBC281989375500710863 /* UILabel+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBD819884C7F00710863 /* UILabel+AL2.m */; };
-		66ADBC2A1989375500710863 /* UITableViewCell+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBDA19884C7F00710863 /* UITableViewCell+AL2.m */; };
-		66ADBC2C1989375500710863 /* UIView+AL2.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ADBBDC19884C7F00710863 /* UIView+AL2.m */; };
 		66FD68AE19801AD5009A3AF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD68AD19801AD5009A3AF9 /* Foundation.framework */; };
 		66FD68B019801AD5009A3AF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD68AF19801AD5009A3AF9 /* CoreGraphics.framework */; };
 		66FD68B219801AD5009A3AF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD68B119801AD5009A3AF9 /* UIKit.framework */; };
@@ -59,6 +48,33 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6619FA17199011020042D4BD /* AL2LayoutParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LayoutParams.h; sourceTree = "<group>"; };
+		6619FA18199011020042D4BD /* AL2LayoutParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LayoutParams.m; sourceTree = "<group>"; };
+		6619FA19199011020042D4BD /* AL2LayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LayoutView.h; sourceTree = "<group>"; };
+		6619FA1A199011020042D4BD /* AL2LayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LayoutView.m; sourceTree = "<group>"; };
+		6619FA1B199011020042D4BD /* AL2LinearLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LinearLayoutView.h; sourceTree = "<group>"; };
+		6619FA1C199011020042D4BD /* AL2LinearLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LinearLayoutView.m; sourceTree = "<group>"; };
+		6619FA1D199011020042D4BD /* AL2RelativeLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2RelativeLayoutView.h; sourceTree = "<group>"; };
+		6619FA1E199011020042D4BD /* AL2RelativeLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2RelativeLayoutView.m; sourceTree = "<group>"; };
+		6619FA1F199011020042D4BD /* AL2SampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2SampleTableViewCell.h; sourceTree = "<group>"; };
+		6619FA20199011020042D4BD /* AL2SampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2SampleTableViewCell.m; sourceTree = "<group>"; };
+		6619FA21199011020042D4BD /* AL2SpaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2SpaceView.h; sourceTree = "<group>"; };
+		6619FA22199011020042D4BD /* AL2SpaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2SpaceView.m; sourceTree = "<group>"; };
+		6619FA23199011020042D4BD /* AL2Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2Utils.h; sourceTree = "<group>"; };
+		6619FA24199011020042D4BD /* AL2Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2Utils.m; sourceTree = "<group>"; };
+		6619FA25199011020042D4BD /* AutoLayout2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayout2.h; sourceTree = "<group>"; };
+		6619FA26199011020042D4BD /* UIButton+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AL2.h"; sourceTree = "<group>"; };
+		6619FA27199011020042D4BD /* UIButton+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AL2.m"; sourceTree = "<group>"; };
+		6619FA28199011020042D4BD /* UIImageView+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AL2.h"; sourceTree = "<group>"; };
+		6619FA29199011020042D4BD /* UIImageView+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AL2.m"; sourceTree = "<group>"; };
+		6619FA2A199011020042D4BD /* UILabel+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AL2.h"; sourceTree = "<group>"; };
+		6619FA2B199011020042D4BD /* UILabel+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AL2.m"; sourceTree = "<group>"; };
+		6619FA2C199011020042D4BD /* UITableViewCell+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AL2.h"; sourceTree = "<group>"; };
+		6619FA2D199011020042D4BD /* UITableViewCell+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AL2.m"; sourceTree = "<group>"; };
+		6619FA2E199011020042D4BD /* UIView+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AL2.h"; sourceTree = "<group>"; };
+		6619FA2F199011020042D4BD /* UIView+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AL2.m"; sourceTree = "<group>"; };
+		6619FA3C1990111B0042D4BD /* UISearchBar+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+AL2.h"; sourceTree = "<group>"; };
+		6619FA3D1990111B0042D4BD /* UISearchBar+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+AL2.m"; sourceTree = "<group>"; };
 		66ADBBAA198847E200710863 /* AL2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AL2AppDelegate.h; path = DemoApp/AL2AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		66ADBBAB198847E200710863 /* AL2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AL2AppDelegate.m; path = DemoApp/AL2AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		66ADBBAC198847E200710863 /* AL2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AL2TableViewController.h; path = DemoApp/AL2TableViewController.h; sourceTree = SOURCE_ROOT; };
@@ -72,31 +88,6 @@
 		66ADBBBC19884AE000710863 /* AutoLayout 2.0-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AutoLayout 2.0-Prefix.pch"; path = "DemoApp/AutoLayout 2.0-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		66ADBBBD19884AE000710863 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DemoApp/main.m; sourceTree = SOURCE_ROOT; };
 		66ADBBC119884BF000710863 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = DemoApp/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		66ADBBC419884C7F00710863 /* AL2LayoutParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LayoutParams.h; sourceTree = "<group>"; };
-		66ADBBC519884C7F00710863 /* AL2LayoutParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LayoutParams.m; sourceTree = "<group>"; };
-		66ADBBC619884C7F00710863 /* AL2LayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LayoutView.h; sourceTree = "<group>"; };
-		66ADBBC719884C7F00710863 /* AL2LayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LayoutView.m; sourceTree = "<group>"; };
-		66ADBBC819884C7F00710863 /* AL2LinearLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2LinearLayoutView.h; sourceTree = "<group>"; };
-		66ADBBC919884C7F00710863 /* AL2LinearLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2LinearLayoutView.m; sourceTree = "<group>"; };
-		66ADBBCA19884C7F00710863 /* AL2RelativeLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2RelativeLayoutView.h; sourceTree = "<group>"; };
-		66ADBBCB19884C7F00710863 /* AL2RelativeLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2RelativeLayoutView.m; sourceTree = "<group>"; };
-		66ADBBCC19884C7F00710863 /* AL2SampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2SampleTableViewCell.h; sourceTree = "<group>"; };
-		66ADBBCD19884C7F00710863 /* AL2SampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2SampleTableViewCell.m; sourceTree = "<group>"; };
-		66ADBBCE19884C7F00710863 /* AL2SpaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2SpaceView.h; sourceTree = "<group>"; };
-		66ADBBCF19884C7F00710863 /* AL2SpaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2SpaceView.m; sourceTree = "<group>"; };
-		66ADBBD019884C7F00710863 /* AL2Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AL2Utils.h; sourceTree = "<group>"; };
-		66ADBBD119884C7F00710863 /* AL2Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AL2Utils.m; sourceTree = "<group>"; };
-		66ADBBD219884C7F00710863 /* AutoLayout2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayout2.h; sourceTree = "<group>"; };
-		66ADBBD319884C7F00710863 /* UIButton+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AL2.h"; sourceTree = "<group>"; };
-		66ADBBD419884C7F00710863 /* UIButton+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AL2.m"; sourceTree = "<group>"; };
-		66ADBBD519884C7F00710863 /* UIImageView+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AL2.h"; sourceTree = "<group>"; };
-		66ADBBD619884C7F00710863 /* UIImageView+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AL2.m"; sourceTree = "<group>"; };
-		66ADBBD719884C7F00710863 /* UILabel+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AL2.h"; sourceTree = "<group>"; };
-		66ADBBD819884C7F00710863 /* UILabel+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AL2.m"; sourceTree = "<group>"; };
-		66ADBBD919884C7F00710863 /* UITableViewCell+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AL2.h"; sourceTree = "<group>"; };
-		66ADBBDA19884C7F00710863 /* UITableViewCell+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AL2.m"; sourceTree = "<group>"; };
-		66ADBBDB19884C7F00710863 /* UIView+AL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AL2.h"; sourceTree = "<group>"; };
-		66ADBBDC19884C7F00710863 /* UIView+AL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AL2.m"; sourceTree = "<group>"; };
 		66ADBBF21989372600710863 /* libAutoLayout2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAutoLayout2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FD68AA19801AD5009A3AF9 /* AutoLayout 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AutoLayout 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FD68AD19801AD5009A3AF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,36 +118,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		66ADBBC319884C7F00710863 /* src */ = {
+		6619FA16199011020042D4BD /* AutoLayout2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				66ADBBC419884C7F00710863 /* AL2LayoutParams.h */,
-				66ADBBC519884C7F00710863 /* AL2LayoutParams.m */,
-				66ADBBC619884C7F00710863 /* AL2LayoutView.h */,
-				66ADBBC719884C7F00710863 /* AL2LayoutView.m */,
-				66ADBBC819884C7F00710863 /* AL2LinearLayoutView.h */,
-				66ADBBC919884C7F00710863 /* AL2LinearLayoutView.m */,
-				66ADBBCA19884C7F00710863 /* AL2RelativeLayoutView.h */,
-				66ADBBCB19884C7F00710863 /* AL2RelativeLayoutView.m */,
-				66ADBBCC19884C7F00710863 /* AL2SampleTableViewCell.h */,
-				66ADBBCD19884C7F00710863 /* AL2SampleTableViewCell.m */,
-				66ADBBCE19884C7F00710863 /* AL2SpaceView.h */,
-				66ADBBCF19884C7F00710863 /* AL2SpaceView.m */,
-				66ADBBD019884C7F00710863 /* AL2Utils.h */,
-				66ADBBD119884C7F00710863 /* AL2Utils.m */,
-				66ADBBD219884C7F00710863 /* AutoLayout2.h */,
-				66ADBBD319884C7F00710863 /* UIButton+AL2.h */,
-				66ADBBD419884C7F00710863 /* UIButton+AL2.m */,
-				66ADBBD519884C7F00710863 /* UIImageView+AL2.h */,
-				66ADBBD619884C7F00710863 /* UIImageView+AL2.m */,
-				66ADBBD719884C7F00710863 /* UILabel+AL2.h */,
-				66ADBBD819884C7F00710863 /* UILabel+AL2.m */,
-				66ADBBD919884C7F00710863 /* UITableViewCell+AL2.h */,
-				66ADBBDA19884C7F00710863 /* UITableViewCell+AL2.m */,
-				66ADBBDB19884C7F00710863 /* UIView+AL2.h */,
-				66ADBBDC19884C7F00710863 /* UIView+AL2.m */,
+				6619FA17199011020042D4BD /* AL2LayoutParams.h */,
+				6619FA18199011020042D4BD /* AL2LayoutParams.m */,
+				6619FA19199011020042D4BD /* AL2LayoutView.h */,
+				6619FA1A199011020042D4BD /* AL2LayoutView.m */,
+				6619FA1B199011020042D4BD /* AL2LinearLayoutView.h */,
+				6619FA1C199011020042D4BD /* AL2LinearLayoutView.m */,
+				6619FA1D199011020042D4BD /* AL2RelativeLayoutView.h */,
+				6619FA1E199011020042D4BD /* AL2RelativeLayoutView.m */,
+				6619FA1F199011020042D4BD /* AL2SampleTableViewCell.h */,
+				6619FA20199011020042D4BD /* AL2SampleTableViewCell.m */,
+				6619FA21199011020042D4BD /* AL2SpaceView.h */,
+				6619FA22199011020042D4BD /* AL2SpaceView.m */,
+				6619FA23199011020042D4BD /* AL2Utils.h */,
+				6619FA24199011020042D4BD /* AL2Utils.m */,
+				6619FA25199011020042D4BD /* AutoLayout2.h */,
+				6619FA26199011020042D4BD /* UIButton+AL2.h */,
+				6619FA27199011020042D4BD /* UIButton+AL2.m */,
+				6619FA28199011020042D4BD /* UIImageView+AL2.h */,
+				6619FA29199011020042D4BD /* UIImageView+AL2.m */,
+				6619FA2A199011020042D4BD /* UILabel+AL2.h */,
+				6619FA2B199011020042D4BD /* UILabel+AL2.m */,
+				6619FA2C199011020042D4BD /* UITableViewCell+AL2.h */,
+				6619FA2D199011020042D4BD /* UITableViewCell+AL2.m */,
+				6619FA2E199011020042D4BD /* UIView+AL2.h */,
+				6619FA2F199011020042D4BD /* UIView+AL2.m */,
+				6619FA3C1990111B0042D4BD /* UISearchBar+AL2.h */,
+				6619FA3D1990111B0042D4BD /* UISearchBar+AL2.m */,
 			);
-			path = src;
+			path = AutoLayout2.0;
 			sourceTree = SOURCE_ROOT;
 		};
 		66FD68A119801AD5009A3AF9 = {
@@ -191,7 +184,7 @@
 		66FD68B319801AD5009A3AF9 /* AutoLayout 2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				66ADBBC319884C7F00710863 /* src */,
+				6619FA16199011020042D4BD /* AutoLayout2.0 */,
 				66ADBBB3198847EE00710863 /* Main_iPad.storyboard */,
 				66ADBBB5198847EE00710863 /* Main_iPhone.storyboard */,
 				66ADBBAA198847E200710863 /* AL2AppDelegate.h */,
@@ -308,18 +301,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66ADBC151989375500710863 /* AL2LayoutParams.m in Sources */,
-				66ADBC171989375500710863 /* AL2LayoutView.m in Sources */,
-				66ADBC191989375500710863 /* AL2LinearLayoutView.m in Sources */,
-				66ADBC1B1989375500710863 /* AL2RelativeLayoutView.m in Sources */,
-				66ADBC1D1989375500710863 /* AL2SampleTableViewCell.m in Sources */,
-				66ADBC1F1989375500710863 /* AL2SpaceView.m in Sources */,
-				66ADBC211989375500710863 /* AL2Utils.m in Sources */,
-				66ADBC241989375500710863 /* UIButton+AL2.m in Sources */,
-				66ADBC261989375500710863 /* UIImageView+AL2.m in Sources */,
-				66ADBC281989375500710863 /* UILabel+AL2.m in Sources */,
-				66ADBC2A1989375500710863 /* UITableViewCell+AL2.m in Sources */,
-				66ADBC2C1989375500710863 /* UIView+AL2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,20 +310,21 @@
 			files = (
 				66ADBBBF19884AE000710863 /* main.m in Sources */,
 				66ADBBB2198847E200710863 /* AL2ViewController.m in Sources */,
-				66ADBBDE19884C7F00710863 /* AL2LayoutView.m in Sources */,
-				66ADBBE119884C7F00710863 /* AL2SampleTableViewCell.m in Sources */,
-				66ADBBE319884C7F00710863 /* AL2Utils.m in Sources */,
+				6619FA31199011020042D4BD /* AL2LayoutView.m in Sources */,
+				6619FA34199011020042D4BD /* AL2SampleTableViewCell.m in Sources */,
+				6619FA36199011020042D4BD /* AL2Utils.m in Sources */,
 				66ADBBB0198847E200710863 /* AL2AppDelegate.m in Sources */,
-				66ADBBE719884C7F00710863 /* UITableViewCell+AL2.m in Sources */,
-				66ADBBE219884C7F00710863 /* AL2SpaceView.m in Sources */,
+				6619FA3A199011020042D4BD /* UITableViewCell+AL2.m in Sources */,
+				6619FA35199011020042D4BD /* AL2SpaceView.m in Sources */,
 				66ADBBB1198847E200710863 /* AL2TableViewController.m in Sources */,
-				66ADBBDF19884C7F00710863 /* AL2LinearLayoutView.m in Sources */,
-				66ADBBE819884C7F00710863 /* UIView+AL2.m in Sources */,
-				66ADBBE519884C7F00710863 /* UIImageView+AL2.m in Sources */,
-				66ADBBE619884C7F00710863 /* UILabel+AL2.m in Sources */,
-				66ADBBE419884C7F00710863 /* UIButton+AL2.m in Sources */,
-				66ADBBE019884C7F00710863 /* AL2RelativeLayoutView.m in Sources */,
-				66ADBBDD19884C7F00710863 /* AL2LayoutParams.m in Sources */,
+				6619FA32199011020042D4BD /* AL2LinearLayoutView.m in Sources */,
+				6619FA3B199011020042D4BD /* UIView+AL2.m in Sources */,
+				6619FA38199011020042D4BD /* UIImageView+AL2.m in Sources */,
+				6619FA39199011020042D4BD /* UILabel+AL2.m in Sources */,
+				6619FA37199011020042D4BD /* UIButton+AL2.m in Sources */,
+				6619FA3E1990111B0042D4BD /* UISearchBar+AL2.m in Sources */,
+				6619FA33199011020042D4BD /* AL2RelativeLayoutView.m in Sources */,
+				6619FA30199011020042D4BD /* AL2LayoutParams.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

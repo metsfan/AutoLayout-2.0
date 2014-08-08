@@ -46,5 +46,6 @@ typedef enum {
 @property (assign, nonatomic) NSUInteger layoutWeight;
 
 @property (assign, nonatomic) UIEdgeInsets measureBounds;
+@property (assign, nonatomic) CGSize measureSize;
 
 @end
